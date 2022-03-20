@@ -1,0 +1,32 @@
+.ugtLogo {
+  width: 70px;
+  height: 70px;
+}
+
+.welcome {
+  color: var(--color-secondary);
+}
+
+.welcome > h1 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.welcome > p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.welcome > p > b {
+  font-weight: 700;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.noWrap {
+  color: var(--color-action);
+  white-space: nowrap;
+}

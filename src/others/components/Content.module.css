@@ -1,0 +1,4 @@
+.bodyWrapper {
+  padding: var(--padding-content);
+  position: relative;
+}

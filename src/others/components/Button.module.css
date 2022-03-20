@@ -1,0 +1,90 @@
+.button {
+  background-color: var(--color-light-grey);
+  color: var(--color-secondary-dark);
+  font-family: "Inter", sans-serif;
+  border: none;
+  margin: 0;
+  padding: 15px 15px;
+  border-radius: 8px;
+  min-height: 10px;
+  width: auto;
+  overflow: visible;
+  text-align: center;
+  transition: opacity ease-in-out 0.3s;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.buttonDefault {
+  position: relative;
+}
+
+.buttonFloat {
+  position: sticky;
+  bottom: 24px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.label {
+  margin: auto;
+}
+
+.leadingIcon,
+.trailingIcon {
+  display: flex;
+}
+
+.leadingIcon {
+  left: 18px;
+  margin-right: 10px;
+}
+
+.trailingIcon {
+  right: 18px;
+  margin-left: 10px;
+}
+
+.flexContainer {
+  --side-margin: 16px;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2 * var(--side-margin));
+  height: 100%;
+  margin: 0px 16px;
+}
+
+.iconsContainer {
+  --side-margin: 16px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2 * var(--side-margin));
+  height: 100%;
+  margin: 0px 16px;
+}
+
+.leadingIcon > *,
+.trailingIcon > * {
+  width: 24px;
+  height: 24px;
+  margin: auto 0;
+}
+
+.highlight {
+  background-color: var(--color-action);
+  color: var(--color-white);
+}
+
+.white {
+  background-color: var(--color-white);
+}

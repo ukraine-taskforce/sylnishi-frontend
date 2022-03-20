@@ -1,0 +1,31 @@
+ol.list {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+  padding-inline-start: 0;
+}
+
+ol.list li {
+  counter-increment: my-awesome-counter;
+  display: flex;
+  align-items: flex-start;
+  margin-block: 1em 0em;
+}
+
+ol.list li > p {
+  display: inline-block;
+  margin-inline-start: 0.6em;
+}
+
+ol.list li::before {
+  --line-height: 1.5em;
+  content: counter(my-awesome-counter);
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 50%;
+  height: var(--line-height);
+  flex: 0 0 var(--line-height);
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: var(--line-height);
+}

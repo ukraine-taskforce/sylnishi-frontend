@@ -1,0 +1,49 @@
+.navWrapper {
+  position: relative;
+}
+
+.elementsWrapper {
+  --padding-top: 18px;
+  display: flex;
+  height: calc(var(--header-height) - var(--padding-top));
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--padding-top);
+  padding-left: var(--padding-content);
+  padding-right: var(--padding-content);
+}
+
+.colorAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+}
+
+.nameSVG {
+  display: block;
+}
+
+.nameLink {
+  display: block;
+  color: var(--color-secondary);
+  margin-top: -4px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.backIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  vertical-align: bottom;
+}
+
+.headerItem {
+  cursor: pointer;
+  padding: 10px 0px;
+}
+
+.wrapper > *:not(:last-child) {
+  margin-inline-end: 10px;
+}

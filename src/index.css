@@ -1,0 +1,40 @@
+@import "./vars.css";
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background-color: var(--color-global-bg);
+  color: var(--color-black);
+}
+
+@media (min-width: 800px) {
+  body {
+    padding: 48px 24px;
+  }
+}
+
+#root {
+  max-width: var(--global-width-limit);
+  margin: 0 auto;
+}
+
+h1 {
+  line-height: 1.5em;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap");
