@@ -7826,35 +7826,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"landingpage-frontend@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "landingpage-frontend@workspace:."
-  dependencies:
-    "@testing-library/jest-dom": 5.16.2
-    "@testing-library/react": 12.1.4
-    "@testing-library/user-event": 13.5.0
-    "@types/jest": 27.4.1
-    "@types/node": 16.11.26
-    "@types/react": 17.0.39
-    "@types/react-dom": 17.0.13
-    fuzzysort: 1.2.1
-    husky: 7.0.4
-    i18next: 21.6.14
-    jest-watch-typeahead: 0.6.5
-    lint-staged: 12.3.5
-    prettier: 2.5.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-i18next: 11.15.5
-    react-query: 3.34.16
-    react-router-dom: 6
-    react-scripts: 5.0.0
-    s3-publish: 2.1.0
-    typescript: 4.6.2
-    web-vitals: 2.1.4
-  languageName: unknown
-  linkType: soft
-
 "language-subtag-registry@npm:~0.3.2":
   version: 0.3.21
   resolution: "language-subtag-registry@npm:0.3.21"
@@ -11556,6 +11527,35 @@ __metadata:
   checksum: b92f71a8541468ffd0b81b8cdb36b1e242eea320bf3c1a9b2c8809945853e9d8c80c19744267eb91cabf06ae9d5fff3592d677df85a31be4ed59ff78534fa420
   languageName: node
   linkType: hard
+
+"sylnishi-frontend@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "sylnishi-frontend@workspace:."
+  dependencies:
+    "@testing-library/jest-dom": 5.16.2
+    "@testing-library/react": 12.1.4
+    "@testing-library/user-event": 13.5.0
+    "@types/jest": 27.4.1
+    "@types/node": 16.11.26
+    "@types/react": 17.0.39
+    "@types/react-dom": 17.0.13
+    fuzzysort: 1.2.1
+    husky: 7.0.4
+    i18next: 21.6.14
+    jest-watch-typeahead: 0.6.5
+    lint-staged: 12.3.5
+    prettier: 2.5.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-i18next: 11.15.5
+    react-query: 3.34.16
+    react-router-dom: 6
+    react-scripts: 5.0.0
+    s3-publish: 2.1.0
+    typescript: 4.6.2
+    web-vitals: 2.1.4
+  languageName: unknown
+  linkType: soft
 
 "symbol-tree@npm:^3.2.4":
   version: 3.2.4
