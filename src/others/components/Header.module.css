@@ -36,12 +36,13 @@
   width: 24px;
   height: 24px;
   margin-right: 6px;
-  vertical-align: bottom;
 }
 
 .headerItem {
   cursor: pointer;
   padding: 10px 0px;
+  display: flex;
+  align-items: center;
 }
 
 .wrapper > *:not(:last-child) {
