@@ -8,6 +8,7 @@ import { ImgFlagUk } from "../../medias/images/UGT_Asset_FlagSelector_UKR";
 import { ImgFlagEn } from "../../medias/images/UGT_Asset_FlagSelector_ENG";
 import { ImgDropdown } from "../../medias/images/UGT_Asset_UI_Dropdown";
 import { Card } from "./Card";
+import { Button } from "./Button";
 
 export interface LanguageSelectorProps {}
 
@@ -61,19 +62,22 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
 
   return (
     <div ref={ref} className={styles.selector} onClick={() => setExpanded(!expanded)}>
-      <Card className={`${styles.langCard} ${expanded ? styles.activeBorder : ""}`}>
+      <Button className={`${styles.langCard} ${expanded ? styles.activeBorder : ""}`}>
         <Flag className={styles.flagIcon} lang={currentLang} />
-        <ImgDropdown className={styles.dropdownIcon} alt="" fill="var(--color-secondary-dark)"/>
-      </Card>
+        <ImgDropdown className={styles.dropdownIcon} alt="" fill="var(--color-secondary-dark)" />
+      </Button>
       {expanded && (
         <Card className={styles.dropdown}>
           {availableLangs
             // .filter((lang) => lang !== currentLang)
             .map((lang) => {
               return (
-                <div key={lang} className={styles.dropdownItem} onClick={() => selectLang(lang)}>
-                  <Flag className={styles.flagIcon} lang={lang as AvailableLang} />
-                </div>
+                <React.Fragment key={lang}>
+                  <Button className={styles.dropdownItem} fullWidth variant="white" onClick={() => selectLang(lang)}>
+                    <Flag className={styles.flagIcon} lang={lang as AvailableLang} />
+                  </Button>
+                  <hr className={styles.divider}></hr>
+                </React.Fragment>
               );
             })}
         </Card>

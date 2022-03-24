@@ -1,7 +1,7 @@
 .langCard {
   background-color: var(--color-white);
   border: 1px solid var(--color-white);
-
+  white-space: pre;
 }
 
 .activeBorder {
@@ -13,7 +13,6 @@
   padding-inline-end: 8px;
   display: inline-block;
 }
-
 
 .dropdownIcon {
   height: 8px;
@@ -31,9 +30,23 @@
   top: calc(100% + 5px);
   left: 0;
   z-index: 1;
-  background-color: var(--color-white);
+  background-color: var(--color-white) !important;
   box-shadow: 0px 10px 24px 8px rgba(20, 20, 20, 0.18);
   filter: drop-shadow(0px 0px 1px rgba(20, 20, 20, 0.08));
+  white-space: pre;
+  padding: 0 !important;
+}
+
+.divider {
+  margin: 0.1px 0px;
+  background: var(--color-secondary-dark);
+  opacity: 0.2;
+  height: 0.5px;
+  border: 0px;
+}
+
+.divider:last-child {
+  display: none;
 }
 
 .dropdownItem {
