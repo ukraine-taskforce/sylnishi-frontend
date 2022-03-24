@@ -7,7 +7,7 @@ import { Action, ActionList } from "../../others/components/ActionList";
 import { ImgNext } from "../../medias/images/UGT_Asset_UI_ButtonNext";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Service, useCountriesQuery } from "../../others/contexts/api";
-import { ImgFlagUk } from "../../medias/images/UGT_Asset_FlagSelector_UKR";
+// import { ImgFlagUk } from "../../medias/images/UGT_Asset_FlagSelector_UKR";
 import { ImgSupply } from "../../medias/images/UGT_Asset_UI_Supply";
 import { ImgSpeech } from "../../medias/images/UGT_Asset_UI_Speech";
 import { ImgMessenger } from "../../medias/images/UGT_Asset_UI_Messenger";
@@ -20,15 +20,18 @@ interface CountryDetailProps {
   id: string;
 }
 
-const FLAG_MAP = {
-  ua: <ImgFlagUk alt=""></ImgFlagUk>,
-  pl: <ImgFlagUk alt=""></ImgFlagUk>,
-  cz: <ImgFlagUk alt=""></ImgFlagUk>,
-  de: <ImgFlagUk alt=""></ImgFlagUk>,
-};
+// TODO add flag component for all needed countries
+// const FLAG_MAP = {
+//   ua: <ImgFlagUk alt=""></ImgFlagUk>,
+//   pl: <ImgFlagUk alt=""></ImgFlagUk>,
+//   cz: <ImgFlagUk alt=""></ImgFlagUk>,
+//   de: <ImgFlagUk alt=""></ImgFlagUk>,
+// };
 
 function serviceToAction(service: Service, navigate: NavigateFunction): Action {
-  const redirect = service.path.startsWith("http") ? () => window.location.replace(service.path) : () => navigate(service.path);
+  const redirect = service.path.startsWith("http")
+    ? () => window.location.replace(service.path)
+    : () => navigate(service.path);
   switch (service.type) {
     case "supplies":
       return {
@@ -62,15 +65,16 @@ export const CountryDetail: React.FunctionComponent<CountryDetailProps> = ({ id 
 
   const country = countries?.find((c) => c.id === id);
 
-  const inhouseActions: Action[] =
-    country?.info.services.inhouse.map((service): Action => {
-      return serviceToAction(service, navigate);
-    }) ?? [];
+  const getInhouseActions = React.useCallback(
+    () => country?.info.services.inhouse.map((service) => serviceToAction(service, navigate)) ?? [],
+    [country, navigate]
+  );
 
-  const externalActions: Action[] =
-    country?.info.services.external.map((service): Action => {
-      return serviceToAction(service, navigate);
-    }) ?? [];
+  const getExternalActions = React.useCallback(
+    () =>
+      country?.info.services.external.map((service) => serviceToAction(service, navigate)) ?? [],
+    [country, navigate]
+  );
 
   return (
     <React.Fragment>
@@ -81,9 +85,13 @@ export const CountryDetail: React.FunctionComponent<CountryDetailProps> = ({ id 
             <Spacer size={30} />
             <h1 className={styles.headline}>{country.name}</h1>
             <Spacer size={30} />
-            {inhouseActions && <ActionList title={t("country_detail_our_services")} actions={inhouseActions} />}
+            {getInhouseActions && (
+              <ActionList title={t("country_detail_our_services")} actions={getInhouseActions()} />
+            )}
             <Spacer size={30} />
-            {externalActions && <ActionList title={t("country_detail_trusted_services")} actions={externalActions} />}
+            {getExternalActions && (
+              <ActionList title={t("country_detail_trusted_services")} actions={getExternalActions()} />
+            )}
           </React.Fragment>
         ) : (
           <Loader></Loader>
