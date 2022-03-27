@@ -7,32 +7,44 @@ export interface ImgFlagEnProps extends React.SVGProps<SVGSVGElement> {
 export const ImgFlagEn: React.FunctionComponent<ImgFlagEnProps> = ({ alt, ...props }) => {
   return (
     <svg
-      width="17"
-      height="10"
-      viewBox="0 0 17 10"
+      width="20"
+      height="16"
+      viewBox="0 0 20 16"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ fillRule: "evenodd", clipRule: "evenodd", strokeLinejoin: "round", strokeMiterlimit: 2 }}
+      style={{
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        strokeLinejoin: "round",
+        strokeMiterlimit: 2,
+      }}
       {...props}
     >
       {Boolean(alt) && <title>{alt}</title>}
-      <rect x="0" y="0" width="17" height="10" fill="rgb(65,71,155);" />
-      <path
-        d="M8.505,3.143L0.813,-1.382L-0.813,1.382L5.345,5.004L-0.808,8.629L0.82,11.392L8.506,6.864L16.187,11.382L17.813,8.618L11.666,5.002L17.814,1.381L16.186,-1.381L8.505,3.143Z"
-        fill="white"
-      />
-      <path
-        d="M8.506,4.296L0.309,-0.526L-0.309,0.526L7.304,5.004L-0.303,9.485L0.315,10.536L8.506,5.711L16.691,10.526L17.309,9.474L9.708,5.003L17.309,0.525L16.691,-0.525L8.506,4.296Z"
-        fill=":rgb(220,37,28)"
-      />
-      <path
-        d="M6.897,3.397L0,3.397L0,6.603L6.897,6.603L6.897,10L10.103,10L10.103,6.603L17,6.603L17,3.397L10.103,3.397L10.103,0L6.897,0L6.897,3.397Z"
-        fill="white"
-      />
-      <path
-        d="M7.89,4.39L0,4.39L0,5.61L7.89,5.61L7.89,10L9.11,10L9.11,5.61L17,5.61L17,4.39L9.11,4.39L9.11,0L7.89,0L7.89,4.39Z"
-        fill="rgb(220,37,28)"
-      />
+      <clipPath id="UGTAssetFLagSelectorENGClip">
+        <rect width="20" height="16" rx="3" ry="3" />
+      </clipPath>
+      <g clipPath="url(#UGTAssetFLagSelectorENGClip)">
+        <path d="M20 0H0V16H20V0Z" fill="#084CA1" />
+        <path
+          d="M20 0H17.4979L12.2874 4.16254V0H7.69856V4.33333L2.19095 0H0V2.16381L3.94986 5.28698H0V10.8298H3.91807L0 13.9752V16H2.59225L7.69856 11.9054V16H12.2874V11.8337L17.5631 16H20V13.9975L15.986 10.8292H20V5.28635H16.0058L20 2.08635V0Z"
+          fill="white"
+        />
+        <path d="M6.4384 5.28635L0 0V1.39556L4.8103 5.28698H6.4384V5.28635Z" fill="#ED1C24" />
+        <path d="M13.571 10.8298L20 16V14.7022L15.1991 10.8298H13.571Z" fill="#ED1C24" />
+        <path
+          d="M7.69856 10.8298H6.3743L0 16H1.52647L7.69856 11.0832V10.8292V10.8298Z"
+          fill="#ED1C24"
+        />
+        <path
+          d="M12.2874 5.28635H13.5204L20 0.129524V0H18.5418L12.2874 4.96V5.28635Z"
+          fill="#ED1C24"
+        />
+        <path
+          d="M20 6.46286H11.3039V0H8.68199V6.46286H0V9.65333H8.68199V16H11.3039V9.65333H20V6.46286Z"
+          fill="#ED1C24"
+        />
+      </g>
     </svg>
   );
 };
