@@ -6334,15 +6334,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.3.2":
-  version: 3.3.2
-  resolution: "hoist-non-react-statics@npm:3.3.2"
-  dependencies:
-    react-is: ^16.7.0
-  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
-  languageName: node
-  linkType: hard
-
 "hoopy@npm:^0.1.4":
   version: 0.1.4
   resolution: "hoopy@npm:0.1.4"
@@ -10158,7 +10149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
+"react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
@@ -10285,19 +10276,6 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 55ffad0d68ee6345326f5803c1925ae44b46cc33cb1cad9bcb68fd1784acfb3876bc12118b3079bc4d934834ae0197a9776baa0a06df0263831acc91ac42df29
-  languageName: node
-  linkType: hard
-
-"react-tracking@npm:^9.2.0":
-  version: 9.2.0
-  resolution: "react-tracking@npm:9.2.0"
-  dependencies:
-    deepmerge: ^4.2.2
-    hoist-non-react-statics: ^3.3.2
-  peerDependencies:
-    prop-types: ^15.x
-    react: ^16.8.0 || ^17.0.0
-  checksum: 2ff7051564ae3c760b6946865dbff2c24737efa0a5c604bcd3681fad6d28636b9b027c8db10ef9e855192eb5f4d9ceec5c64414869e2befd491aedc1575832c6
   languageName: node
   linkType: hard
 
@@ -11573,7 +11551,6 @@ __metadata:
     react-query: 3.34.16
     react-router-dom: 6
     react-scripts: 5.0.0
-    react-tracking: ^9.2.0
     s3-publish: 2.1.0
     typescript: 4.6.2
     web-vitals: 2.1.4
