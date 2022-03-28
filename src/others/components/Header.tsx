@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { LanguageSelector } from "./LanguageSelector";
 import { Spacer } from "./Spacer";
-import { Text } from "./Text";
 
 import { ImgBack } from "../../medias/images/UGT_Asset_UI_Back";
 
@@ -20,7 +19,11 @@ export interface HeaderProps {
 
 export interface HeaderCardProps extends React.AllHTMLAttributes<HTMLDivElement> {}
 
-export const Header: React.FunctionComponent<HeaderProps> = ({ backLink, hasHeadline, hasLangSelector }) => {
+export const Header: React.FunctionComponent<HeaderProps> = ({
+  backLink,
+  hasHeadline,
+  hasLangSelector,
+}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
@@ -37,7 +40,6 @@ export const Header: React.FunctionComponent<HeaderProps> = ({ backLink, hasHead
           {Boolean(hasHeadline) && (
             <div>
               <AssetName className={styles.nameSVG}></AssetName>
-              <Text className={styles.nameLink}>SYLNISHI.COM</Text>
             </div>
           )}
           <Spacer flex={1} />
