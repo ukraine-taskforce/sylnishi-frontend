@@ -20,7 +20,11 @@ export interface HeaderProps {
 
 export interface HeaderCardProps extends React.AllHTMLAttributes<HTMLDivElement> {}
 
-export const Header: React.FunctionComponent<HeaderProps> = ({ backLink, hasHeadline, hasLangSelector }) => {
+export const Header: React.FunctionComponent<HeaderProps> = ({
+  backLink,
+  hasHeadline,
+  hasLangSelector,
+}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
@@ -37,7 +41,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({ backLink, hasHead
           {Boolean(hasHeadline) && (
             <div>
               <AssetName className={styles.nameSVG}></AssetName>
-              <Text className={styles.nameLink}>SYLNISHI.COM</Text>
+              {/* <Text className={styles.nameLink}>SYLNISHI.COM</Text> */}
             </div>
           )}
           <Spacer flex={1} />
