@@ -6,7 +6,14 @@ export interface ImgFlagCzProps extends React.SVGProps<SVGSVGElement> {
 
 export const ImgFlagCz: React.FunctionComponent<ImgFlagCzProps> = ({ alt, ...props }) => {
   return (
-    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="20"
+      height="16"
+      viewBox="0 0 20 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       {Boolean(alt) && <title>{alt}</title>}
       <rect x="0.5" y="0.5" width="19" height="15" rx="1.5" fill="white" stroke="#F1F1F1" />
       <path
