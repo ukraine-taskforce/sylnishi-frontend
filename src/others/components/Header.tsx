@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { LanguageSelector } from "./LanguageSelector";
 import { Spacer } from "./Spacer";
-import { Text } from "./Text";
+// import { Text } from "./Text";
 
 import { ImgBack } from "../../medias/images/UGT_Asset_UI_Back";
 
