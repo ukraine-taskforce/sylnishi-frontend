@@ -4,16 +4,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider } from "react-query";
 
 import { Home } from "./pages/home";
-import { FormContextProvider } from "./others/contexts/form";
 import { queryClient } from "./others/contexts/api";
 import { NotFound } from "./pages/notFound";
 import { CountryDetail } from "./pages/countryDetail";
+import { TrackingContextProvider } from "./others/contexts/tracking";
 
 export function App() {
   return (
     <React.Fragment>
       <QueryClientProvider client={queryClient}>
-        <FormContextProvider>
+        <TrackingContextProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -24,7 +24,7 @@ export function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </FormContextProvider>
+        </TrackingContextProvider>
       </QueryClientProvider>
     </React.Fragment>
   );

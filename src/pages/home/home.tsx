@@ -19,12 +19,14 @@ import { ImgShare } from "../../medias/images/UGT_Asset_UI_Share";
 import { Action, ActionList } from "../../others/components/ActionList";
 import { ImgInfo } from "../../medias/images/UGT_Asset_UI_Info";
 import { Loader } from "../../others/components/Loader";
+import { useTrackingValue } from "../../others/contexts/tracking";
 
 export function Home() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { share } = useShare();
   const [displayModal, setDisplayModal] = React.useState(false);
+  const { updateValue: updateTracking } = useTrackingValue();
 
   const { data: countries } = useCountriesQuery();
 
@@ -39,7 +41,7 @@ export function Home() {
 
   return (
     <React.Fragment>
-      <Header hasHeadline hasLangSelector/>
+      <Header hasHeadline hasLangSelector />
       <Content>
         {/* Welcome */}
         <div className={styles.welcome}>
@@ -54,17 +56,35 @@ export function Home() {
         <Spacer size={50} />
 
         {/* Country selection */}
-        {countries != null ? <ActionList title={t("home_where")} actions={actions} /> : <Loader></Loader>}
+        {countries != null ? (
+          <ActionList title={t("home_where")} actions={actions} />
+        ) : (
+          <Loader></Loader>
+        )}
 
         <Spacer size={50} />
 
         {/* Infos */}
         <div className={styles.infoRow}>
-          <Button leadingIcon={<ImgInfo alt="" />} variant="white" onClick={() => setDisplayModal(true)}>
+          <Button
+            leadingIcon={<ImgInfo alt="" />}
+            variant="white"
+            onClick={() => {
+              updateTracking({ about: true });
+              setDisplayModal(true);
+            }}
+          >
             <span className={styles.noWrap}>{t("about")}</span>
           </Button>
           {isShareSupported() && (
-            <Button trailingIcon={<ImgShare alt="" />} variant="white" onClick={share}>
+            <Button
+              trailingIcon={<ImgShare alt="" />}
+              variant="white"
+              onClick={() => {
+                updateTracking({ shared: true });
+                share();
+              }}
+            >
               <span className={styles.noWrap}>{t("share")}</span>
             </Button>
           )}
@@ -88,8 +108,13 @@ export function Home() {
               fullWidth
               centered
               variant="highlight"
-              onClick={share}
-              trailingIcon={<ImgShare style={{ height: "15px" }} fill="var(--color-white)" alt={t("share")} />}
+              onClick={() => {
+                updateTracking({ shared: true });
+                share();
+              }}
+              trailingIcon={
+                <ImgShare style={{ height: "15px" }} fill="var(--color-white)" alt={t("share")} />
+              }
             >
               {t("share")}
             </Button>
