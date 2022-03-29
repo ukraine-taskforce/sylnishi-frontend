@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { QueryClient, useQuery } from "react-query";
-
+import { QueryClient, useMutation, useQuery } from "react-query";
 
 import { API_MOCK } from "./apiMockData";
+import { TrackingData } from "./tracking";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -51,11 +51,41 @@ export function useCountriesQuery() {
         })
         .then((res) => res.json());
 
-      return result.locations.filter((location: Country) => Boolean(location.name) && Boolean(location.id));
+      return result.locations.filter(
+        (location: Country) => Boolean(location.name) && Boolean(location.id)
+      );
     } catch (error) {
       if (process.env.NODE_ENV !== "production") {
         return API_MOCK;
       }
+      throw error;
+    }
+  });
+}
+
+export function useSubmitTracking() {
+  return useMutation("submitTracking", async (trackingData: TrackingData) => {
+    try {
+      // const recaptchaToken = await generateCaptchaToken("submit");
+      const result = await fetch(`${API_DOMAIN}/tracking`, {
+        method: "POST",
+        body: JSON.stringify({
+          ...trackingData,
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error(res.statusText);
+
+          return res;
+        })
+        .then((res) => res.json());
+
+      return result;
+    } catch (error) {
+      if (process.env.NODE_ENV !== "production") {
+        return null;
+      }
+
       throw error;
     }
   });
