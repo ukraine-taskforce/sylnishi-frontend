@@ -6,8 +6,6 @@ export interface AssetNameProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const AssetName: React.FunctionComponent<AssetNameProps> = ({
-  width = 12,
-  height = 80,
   ...props
 }) => {
   return (
