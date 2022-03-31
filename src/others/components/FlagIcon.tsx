@@ -15,8 +15,8 @@ import { ImgFlagSv } from "../../medias/images/UGT_Asset_FlagSelector_SV";
 import { ImgFlagTr } from "../../medias/images/UGT_Asset_FlagSelector_TR";
 import { ImgFlagUk } from "../../medias/images/UGT_Asset_FlagSelector_UK";
 
-export type AvailableFlag =
-  | "cz"
+export type AvailableRFC =
+  | "cs"
   | "da"
   | "de"
   | "en"
@@ -32,8 +32,39 @@ export type AvailableFlag =
   | "tr"
   | "uk";
 
+export type AvailableISO =
+  | "cz"
+  | "dk"
+  | "de"
+  | "gb"
+  | "ee"
+  | "hu"
+  | "it"
+  | "pl"
+  | "ro"
+  | "sk"
+  | "se"
+  | "tr"
+  | "ua";
+
+export const ISO2RFC = {
+  cz: "cs",
+  dk: "da",
+  de: "de",
+  gb: "en",
+  ee: "et",
+  hu: "hu",
+  it: "it",
+  pl: "pl",
+  ro: "ro",
+  sk: "sk",
+  se: "sv",
+  tr: "tr",
+  ua: "uk",
+};
+
 export const FLAG_MAP = {
-  cz: ImgFlagCz,
+  cs: ImgFlagCz,
   da: ImgFlagDa,
   de: ImgFlagDe,
   en: ImgFlagEn,
@@ -56,8 +87,9 @@ export interface FlagProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const FlagIcon: FC<FlagProps> = ({ lang, alt, ...props }) => {
+  lang = lang?.toLocaleLowerCase();
   if (lang in FLAG_MAP) {
-    return React.createElement(FLAG_MAP[lang as AvailableFlag], { alt: alt, ...props });
+    return React.createElement(FLAG_MAP[lang as AvailableRFC], { alt: alt, ...props });
   }
   return <></>;
 };
