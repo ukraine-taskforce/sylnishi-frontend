@@ -1,10 +1,10 @@
 import React from "react";
 
-export interface ImgFlagUkProps extends React.SVGProps<SVGSVGElement> {
+export interface ImgFlagPlProps extends React.SVGProps<SVGSVGElement> {
   alt: string;
 }
 
-export const ImgFlagUk: React.FunctionComponent<ImgFlagUkProps> = ({ alt, ...props }) => {
+export const ImgFlagPl: React.FunctionComponent<ImgFlagPlProps> = ({ alt, ...props }) => {
   return (
     <svg
       width="20"
@@ -15,10 +15,14 @@ export const ImgFlagUk: React.FunctionComponent<ImgFlagUkProps> = ({ alt, ...pro
       {...props}
     >
       {Boolean(alt) && <title>{alt}</title>}
-      <rect width="20" height="10" rx="2" fill="#1337B8" transform="translate(0, 6)" />
+      <path
+        d="M0.5 7.5H19.5V14C19.5 14.8284 18.8284 15.5 18 15.5H2C1.17157 15.5 0.5 14.8284 0.5 14V7.5Z"
+        fill="white"
+        stroke="#F1F1F1"
+      />
       <path
         d="M0 2C0 0.895431 0.895431 0 2 0H18C19.1046 0 20 0.895431 20 2V8H0V2Z"
-        fill="#FFD400"
+        fill="#CF2A20"
       />
     </svg>
   );
