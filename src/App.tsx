@@ -17,10 +17,7 @@ export function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/ua" element={<CountryDetail id="ua" />} />
-              <Route path="/pl" element={<CountryDetail id="pl" />} />
-              <Route path="/cz" element={<CountryDetail id="cz" />} />
-              <Route path="/de" element={<CountryDetail id="de" />} />
+              <Route path="/:id" element={<CountryDetail />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
