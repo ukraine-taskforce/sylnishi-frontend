@@ -4,28 +4,19 @@ import { useTranslation } from "react-i18next";
 import styles from "./LanguageSelector.module.css";
 
 import { AvailableLang, availableLangs, storeLanguage } from "../contexts/i18n";
-import { ImgFlagUk } from "../../medias/images/UGT_Asset_FlagSelector_UKR";
-import { ImgFlagEn } from "../../medias/images/UGT_Asset_FlagSelector_ENG";
 import { ImgDropdown } from "../../medias/images/UGT_Asset_UI_Dropdown";
 import { Card } from "./Card";
 import { Button } from "./Button";
+import { FlagIcon } from "./FlagIcon";
 
 export interface LanguageSelectorProps {}
 
 const Flag = ({ lang, className }: { lang: AvailableLang; className?: string }) => {
-  if (lang === "uk") {
-    return (
-      <React.Fragment>
-        <ImgFlagUk alt="ukrainian" className={className} />
-        <span>UA</span>
-      </React.Fragment>
-    );
-  }
-
+  const [label, alt] = lang === "uk" ? ["UA", "ukrainian"] : ["EN", "english"];
   return (
     <React.Fragment>
-      <ImgFlagEn alt="english" className={className} />
-      <span>EN</span>
+      <FlagIcon lang={lang} alt={alt} className={className} />
+      <span>{label}</span>
     </React.Fragment>
   );
 };
@@ -73,7 +64,12 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
             .map((lang) => {
               return (
                 <React.Fragment key={lang}>
-                  <Button className={styles.dropdownItem} fullWidth variant="white" onClick={() => selectLang(lang)}>
+                  <Button
+                    className={styles.dropdownItem}
+                    fullWidth
+                    variant="white"
+                    onClick={() => selectLang(lang)}
+                  >
                     <Flag className={styles.flagIcon} lang={lang as AvailableLang} />
                   </Button>
                   <hr className={styles.divider}></hr>
