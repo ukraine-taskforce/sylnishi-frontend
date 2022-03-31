@@ -1,9 +1,6 @@
 import React from "react";
 
-export interface AssetNameProps extends React.SVGProps<SVGSVGElement> {
-  // width?: number;
-  // height?: number;
-}
+export interface AssetNameProps extends React.SVGProps<SVGSVGElement> {}
 
 export const AssetName: React.FunctionComponent<AssetNameProps> = ({ ...props }) => {
   return (
