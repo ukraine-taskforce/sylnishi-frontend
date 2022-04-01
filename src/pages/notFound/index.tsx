@@ -5,6 +5,7 @@ import { Spacer } from "../../others/components/Spacer";
 import { Text } from "../../others/components/Text";
 import { Header } from "../../others/components/Header";
 import { Content } from "../../others/components/Content";
+import { NotFound } from "../../others/components/NotFound";
 
 export function NotFoundPage() {
   const { t } = useTranslation();
@@ -14,11 +15,7 @@ export function NotFoundPage() {
       <Header backLink="/" />
       <Content>
         <Spacer size={100} />
-        <h1>404</h1>
-        <Spacer size={24} />
-        <Text>{t("page_not_exist")}</Text>
-        <Spacer />
-        <Link to="/">{t("go_to_homepage")}</Link>
+        <NotFound></NotFound>
       </Content>
     </React.Fragment>
   );
