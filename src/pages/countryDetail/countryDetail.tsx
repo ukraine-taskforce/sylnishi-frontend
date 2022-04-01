@@ -18,6 +18,7 @@ import { Loader } from "../../others/components/Loader";
 import styles from "./countryDetail.module.css";
 import { useTrackingValue } from "../../others/contexts/tracking";
 import { AvailableISO, FlagIcon, ISO2RFC } from "../../others/components/FlagIcon";
+import { NotFound } from "../../others/components/NotFound";
 
 interface CountryDetailProps {}
 
@@ -27,7 +28,7 @@ export const CountryDetail: React.FunctionComponent<CountryDetailProps> = () => 
   const params = useParams();
   const id = params.id;
 
-  const { data: countries } = useCountriesQuery();
+  const { data: countries, isFetching } = useCountriesQuery();
 
   const country = countries?.find((c) => c.id === id);
 
@@ -105,8 +106,10 @@ export const CountryDetail: React.FunctionComponent<CountryDetailProps> = () => 
               />
             )}
           </React.Fragment>
-        ) : (
+        ) : isFetching ? (
           <Loader></Loader>
+        ) : (
+          <NotFound></NotFound>
         )}
       </Content>
     </React.Fragment>

@@ -9,5 +9,7 @@
   "country_detail_trusted_services": "Other top trusted services",
   "share": "Share",
   "about": "About us",
-  "back": "Back"
+  "back": "Back",
+  "page_not_exist": "Page does not exist :(",
+  "go_to_homepage": "Go to homepage"
 }

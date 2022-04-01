@@ -1,0 +1,7 @@
+.notFoundFlex {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+  height: 100%;
+}

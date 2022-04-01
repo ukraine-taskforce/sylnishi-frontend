@@ -5,7 +5,7 @@ import { QueryClientProvider } from "react-query";
 
 import { Home } from "./pages/home";
 import { queryClient } from "./others/contexts/api";
-import { NotFound } from "./pages/notFound";
+import { NotFoundPage } from "./pages/notFound";
 import { CountryDetail } from "./pages/countryDetail";
 import { TrackingContextProvider } from "./others/contexts/tracking";
 
@@ -18,7 +18,7 @@ export function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/:id" element={<CountryDetail />} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </BrowserRouter>
         </TrackingContextProvider>
