@@ -47,9 +47,17 @@
   margin-right: 10px;
 }
 
+.leadingIcon:empty {
+  margin: 0;
+}
+
 .trailingIcon {
   right: 18px;
   margin-left: 10px;
+}
+
+.trailingIcon:empty {
+  margin: 0;
 }
 
 .flexContainer {
