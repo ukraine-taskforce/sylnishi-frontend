@@ -39,6 +39,7 @@
 }
 
 .headerItem {
+  color: var(--color-action);
   cursor: pointer;
   padding: 10px 0px;
   display: flex;
