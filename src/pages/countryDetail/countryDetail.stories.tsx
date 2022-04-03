@@ -18,16 +18,16 @@ Primary.args = {
       services: {
         inhouse: [
           {
-            id: "request",
-            name: "Request supplies",
+            id: "internal",
+            name: "An internal link",
             type: "supplies",
             path: "https://requests.ugtf.app",
           },
           {
             id: "psyche",
-            name: "Psychological support",
+            name: "Internal chat link",
             type: "chat",
-            path: "/",
+            path: "/foo",
           },
         ],
         external: [
