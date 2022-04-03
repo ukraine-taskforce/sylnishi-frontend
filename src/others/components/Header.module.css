@@ -1,5 +1,43 @@
 .navWrapper {
-  position: relative;
+  position: sticky;
+  top: -16px;
+  z-index: 1;
+  height: calc(var(--header-height) + 16px);
+}
+
+.navWrapper::before,
+.navWrapper::after {
+  content: "";
+  display: block;
+  height: 16px;
+  position: sticky;
+  -webkit-position: sticky;
+}
+
+.navWrapper::before {
+  top: calc(var(--header-height) - 16px);
+  box-shadow: 0px 1px 8px 2px rgba(20, 20, 20, 0.08);
+}
+
+.navWrapper::after {
+  height: 16px;
+  background: linear-gradient(white 20%, rgba(255, 255, 255, 0.8) 70%, transparent);
+  /* top: 0px; */
+  /* cover should fall over shadow */
+  z-index: 2;
+}
+
+.headerBackground {
+  background-color: var(--color-white);
+  position: sticky;
+  -webkit-position: sticky;
+  width: 100%;
+  height: calc(var(--header-height));
+  top: 0px;
+  /* compensate for shadow with negative margin */
+  margin-top: -16px;
+  /* content should fall over shadow and cover */
+  z-index: 3;
 }
 
 .elementsWrapper {
