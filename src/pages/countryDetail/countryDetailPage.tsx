@@ -14,11 +14,7 @@ export const CountryDetailPage: React.FunctionComponent<CountryDetailProps> = ()
   const id = params.id;
 
   const { data: countries, isFetching } = useCountriesQuery();
-
-  console.log(`id is ${id} and countrie sis `, countries);
   const country = countries?.find((c) => c.id.toLocaleLowerCase() === id);
-
-  console.log(`Country is ${country} and countrie sis `, countries);
 
   return (
     <React.Fragment>

@@ -25,12 +25,6 @@ function parseRow(
   countries: { [key: string]: Country },
   headerToIndex: { [key: string]: number }
 ): void {
-  console.log(
-    'parsing row country index is ' +
-      headerToIndex[SERVICE_DATASET_COLUMNS.COUNTRY] +
-      ' and row is ',
-    row
-  );
   const countryName = row[headerToIndex[SERVICE_DATASET_COLUMNS.COUNTRY]];
   const id = row[headerToIndex[SERVICE_DATASET_COLUMNS.ID]];
 

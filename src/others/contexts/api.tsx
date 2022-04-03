@@ -30,7 +30,6 @@ export function useCountriesQuery() {
         .then((res) => res.text());
 
       const ret = Object.values(parseServicesListCSV(result));
-      console.log('ret data  ', ret);
       return ret;
     } catch (error) {
       if (process.env.NODE_ENV !== 'production') {

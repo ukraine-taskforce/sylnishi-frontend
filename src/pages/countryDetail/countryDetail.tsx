@@ -12,7 +12,6 @@ export interface CountryDetailProps {
 }
 
 export function CountryDetail({ country }: CountryDetailProps) {
-  console.log(`COuntry detail with country`, country);
   const inhouse = country.services.filter((service) => service.type !== SERVICE_TYPE.EXTERNAL);
   const external = country.services.filter((service) => service.type === SERVICE_TYPE.EXTERNAL);
 
