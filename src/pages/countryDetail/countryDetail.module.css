@@ -1,5 +1,14 @@
+.countryWrapper {
+  display: flex;
+  align-items: center;
+}
+
 .headline {
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--color-secondary);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+.countryIcon {
+  margin-inline-end: 8px;
 }

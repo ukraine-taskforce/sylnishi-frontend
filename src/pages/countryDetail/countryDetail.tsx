@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { Spacer } from "../../others/components/Spacer";
 import { Header } from "../../others/components/Header";
 import { Content } from "../../others/components/Content";
@@ -16,24 +17,18 @@ import { Loader } from "../../others/components/Loader";
 
 import styles from "./countryDetail.module.css";
 import { useTrackingValue } from "../../others/contexts/tracking";
+import { AvailableISO, FlagIcon, ISO2RFC } from "../../others/components/FlagIcon";
+import { NotFound } from "../../others/components/NotFound";
 
-interface CountryDetailProps {
-  id: string;
-}
+interface CountryDetailProps {}
 
-// TODO add flag component for all needed countries
-// const FLAG_MAP = {
-//   ua: <ImgFlagUk alt=""></ImgFlagUk>,
-//   pl: <ImgFlagUk alt=""></ImgFlagUk>,
-//   cz: <ImgFlagUk alt=""></ImgFlagUk>,
-//   de: <ImgFlagUk alt=""></ImgFlagUk>,
-// };
-
-export const CountryDetail: React.FunctionComponent<CountryDetailProps> = ({ id }) => {
+export const CountryDetail: React.FunctionComponent<CountryDetailProps> = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const params = useParams();
+  const id = params.id;
 
-  const { data: countries } = useCountriesQuery();
+  const { data: countries, isFetching } = useCountriesQuery();
 
   const country = countries?.find((c) => c.id === id);
 
@@ -88,7 +83,14 @@ export const CountryDetail: React.FunctionComponent<CountryDetailProps> = ({ id 
         {country != null ? (
           <React.Fragment>
             <Spacer size={30} />
-            <h1 className={styles.headline}>{country.name}</h1>
+            <div className={styles.countryWrapper}>
+              <FlagIcon
+                alt=""
+                lang={ISO2RFC[country.id as AvailableISO]}
+                className={styles.countryIcon}
+              ></FlagIcon>
+              <h1 className={styles.headline}>{country.name}</h1>
+            </div>
             <Spacer size={30} />
             {inhouse && (
               <ActionList
@@ -104,8 +106,10 @@ export const CountryDetail: React.FunctionComponent<CountryDetailProps> = ({ id 
               />
             )}
           </React.Fragment>
-        ) : (
+        ) : isFetching ? (
           <Loader></Loader>
+        ) : (
+          <NotFound></NotFound>
         )}
       </Content>
     </React.Fragment>

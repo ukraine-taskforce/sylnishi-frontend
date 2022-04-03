@@ -26,6 +26,10 @@
   justify-content: space-around;
 }
 
+.countryIcon {
+  height: 1em;
+}
+
 .noWrap {
   color: var(--color-action);
   white-space: nowrap;

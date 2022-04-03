@@ -20,6 +20,7 @@ import { Action, ActionList } from "../../others/components/ActionList";
 import { ImgInfo } from "../../medias/images/UGT_Asset_UI_Info";
 import { Loader } from "../../others/components/Loader";
 import { useTrackingValue } from "../../others/contexts/tracking";
+import { AvailableISO, FlagIcon, ISO2RFC } from "../../others/components/FlagIcon";
 
 export function Home() {
   const { t } = useTranslation();
@@ -34,6 +35,13 @@ export function Home() {
     countries?.map((country): Action => {
       return {
         title: country.name,
+        leading: (
+          <FlagIcon
+            alt=""
+            lang={ISO2RFC[country.id as AvailableISO]}
+            className={styles.countryIcon}
+          />
+        ),
         trailing: <ImgNext fill="var(--color-secondary-dark)"></ImgNext>,
         onAction: () => navigate(`/${country.id.toLowerCase()}`),
       };

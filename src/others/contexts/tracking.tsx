@@ -60,7 +60,6 @@ export const TrackingContextProvider: React.FC = ({ children }) => {
   const submit = React.useCallback(
     async (update: Partial<TrackingData> = {}) => {
       const updated = { ...currentValue, ...update };
-      console.log(updated);
       await mutate(updated);
       setCurrentValue({ ...defaultTrackingData });
     },

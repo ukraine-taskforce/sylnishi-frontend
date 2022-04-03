@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
-import { NotFound } from '.';
+import { NotFoundPage } from '.';
 
 export default {
   title: 'Example/NotFound',
-  component: NotFound,
-} as ComponentMeta<typeof NotFound>;
+  component: NotFoundPage,
+} as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFound> = () => <MemoryRouter><NotFound /></MemoryRouter>;
+const Template: ComponentStory<typeof NotFoundPage> = () => <MemoryRouter><NotFoundPage /></MemoryRouter>;
 
 export const Primary = Template.bind({});
 Primary.args = {};
