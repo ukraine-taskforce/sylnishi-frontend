@@ -1,19 +1,20 @@
 import { t } from 'i18next';
 import React from 'react';
 import { AvailableISO, FlagIcon, ISO2RFC } from '../../others/components/FlagIcon';
-import { ServiceList } from '../../others/components/ServiceList';
+import { ServiceList } from './ServiceList';
 import { Spacer } from '../../others/components/Spacer';
-import { Country } from '../../others/contexts/api';
-import styles from "./countryDetail.module.css";
-
+import { Country } from '../../others/contexts/country';
+import styles from './countryDetail.module.css';
+import { SERVICE_TYPE } from '../../others/contexts/service';
 
 export interface CountryDetailProps {
   country: Country;
 }
 
 export function CountryDetail({ country }: CountryDetailProps) {
-  const inhouse = country?.info?.services?.inhouse;
-  const external = country?.info?.services?.external;
+  console.log(`COuntry detail with country`, country);
+  const inhouse = country.services.filter((service) => service.type !== SERVICE_TYPE.EXTERNAL);
+  const external = country.services.filter((service) => service.type === SERVICE_TYPE.EXTERNAL);
 
   return (
     <React.Fragment>
@@ -28,17 +29,11 @@ export function CountryDetail({ country }: CountryDetailProps) {
       </div>
       <Spacer size={30} />
       {inhouse && inhouse.length > 0 && (
-        <ServiceList
-          title={t("country_detail_our_services")}
-          services={inhouse}
-        />
+        <ServiceList title={t('country_detail_our_services')} services={inhouse} />
       )}
       <Spacer size={30} />
       {external && external.length > 0 && (
-        <ServiceList
-          title={t("country_detail_trusted_services")}
-          services={external}
-        />
+        <ServiceList title={t('country_detail_trusted_services')} services={external} />
       )}
     </React.Fragment>
   );

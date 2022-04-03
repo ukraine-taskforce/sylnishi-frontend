@@ -1,8 +1,10 @@
-import { useTranslation } from "react-i18next";
-import { QueryClient, useMutation, useQuery } from "react-query";
+import { useTranslation } from 'react-i18next';
+import { QueryClient, useMutation, useQuery } from 'react-query';
 
-import { API_MOCK } from "./apiMockData";
-import { TrackingData } from "./tracking";
+import { API_MOCK } from './apiMockData';
+import { Country } from './country';
+import { parseServicesListCSV } from './parseServicesListCSV';
+import { TrackingData } from './tracking';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -12,50 +14,26 @@ export const queryClient = new QueryClient({
   },
 });
 
-export const API_DOMAIN = process.env.REACT_APP_API_DOMAIN || "http://127.0.0.1";
-
-export type ID = string;
-
-export type ServiceType = "external" | "supplies" | "chat";
-
-export interface Service {
-  id: ID;
-  name: string;
-  type: ServiceType;
-  path: string;
-}
-
-export interface CountryInfo {
-  services: {
-    inhouse: Service[];
-    external: Service[];
-  };
-}
-
-export interface Country {
-  id: ID;
-  name: string;
-  info: CountryInfo;
-}
+export const API_DOMAIN = process.env.REACT_APP_API_DOMAIN || 'http://127.0.0.1';
 
 export function useCountriesQuery() {
   const { i18n } = useTranslation();
 
   return useQuery<Country[]>(`locationQuery${i18n.language}`, async () => {
     try {
-      const result = await fetch(`${API_DOMAIN}/countries?locale=${i18n.language}`)
+      const result = await fetch(`./assets/dataset.csv`)
         .then((res) => {
           if (!res.ok) throw new Error(res.statusText);
 
           return res;
         })
-        .then((res) => res.json());
+        .then((res) => res.text());
 
-      return result.locations.filter(
-        (location: Country) => Boolean(location.name) && Boolean(location.id)
-      );
+      const ret = Object.values(parseServicesListCSV(result));
+      console.log('ret data  ', ret);
+      return ret;
     } catch (error) {
-      if (process.env.NODE_ENV !== "production") {
+      if (process.env.NODE_ENV !== 'production') {
         return API_MOCK;
       }
       throw error;
@@ -64,11 +42,11 @@ export function useCountriesQuery() {
 }
 
 export function useSubmitTracking() {
-  return useMutation("submitTracking", async (trackingData: TrackingData) => {
+  return useMutation('submitTracking', async (trackingData: TrackingData) => {
     try {
       // const recaptchaToken = await generateCaptchaToken("submit");
       const result = await fetch(`${API_DOMAIN}/tracking`, {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify({
           ...trackingData,
         }),
@@ -82,7 +60,7 @@ export function useSubmitTracking() {
 
       return result;
     } catch (error) {
-      if (process.env.NODE_ENV !== "production") {
+      if (process.env.NODE_ENV !== 'production') {
         return null;
       }
 
