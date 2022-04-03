@@ -5,6 +5,7 @@
   height: calc(var(--header-height) + 16px);
 }
 
+/* Add pseudo elements for shadow reveal */
 .navWrapper::before,
 .navWrapper::after {
   content: "";
@@ -14,19 +15,20 @@
   -webkit-position: sticky;
 }
 
+/* The actual shadow that is revealed on scroll */
 .navWrapper::before {
   top: calc(var(--header-height) - 16px);
   box-shadow: 0px 8px 8px -3px rgba(20, 20, 20, 0.08);
 }
 
+/* Cover of the shadow if not scrolled with white to alpha fade for smooth transition */
 .navWrapper::after {
   height: 16px;
   background: linear-gradient(white 20%, rgba(255, 255, 255, 0.8) 70%, transparent);
-  /* top: 0px; */
-  /* cover should fall over shadow */
   z-index: 2;
 }
 
+/* Additional white backdrop for the header */
 .headerBackground {
   background-color: var(--color-white);
   position: sticky;
@@ -34,9 +36,8 @@
   width: 100%;
   height: calc(var(--header-height));
   top: 0px;
-  /* compensate for shadow with negative margin */
+  /* compensate for ::before height */
   margin-top: -16px;
-  /* content should fall over shadow and cover */
   z-index: 3;
 }
 
