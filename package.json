@@ -31,6 +31,7 @@
     "@storybook/node-logger": "^6.4.19",
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.19",
+    "@storybook/react-docgen-typescript-plugin": "1.0.1",
     "@storybook/testing-library": "^0.0.9",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.4",
