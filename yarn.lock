@@ -3655,6 +3655,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/react-docgen-typescript-plugin@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@storybook/react-docgen-typescript-plugin@npm:1.0.1"
+  dependencies:
+    debug: ^4.1.1
+    endent: ^2.0.1
+    find-cache-dir: ^3.3.1
+    flat-cache: ^3.0.4
+    micromatch: ^4.0.2
+    react-docgen-typescript: ^2.0.0
+    tslib: ^2.0.0
+  peerDependencies:
+    typescript: ">= 3.x"
+    webpack: ">= 4"
+  checksum: b76875a37ae78421e4549453d67359f743a2245c9474f1897426f5e436ef7a35e277823033b13949ec453dcd63f699bbdf7c1009a18058783bc67eab75db49b1
+  languageName: node
+  linkType: hard
+
 "@storybook/react@npm:^6.4.19":
   version: 6.4.19
   resolution: "@storybook/react@npm:6.4.19"
@@ -18654,6 +18672,7 @@ __metadata:
     "@storybook/node-logger": ^6.4.19
     "@storybook/preset-create-react-app": ^4.1.0
     "@storybook/react": ^6.4.19
+    "@storybook/react-docgen-typescript-plugin": 1.0.1
     "@storybook/testing-library": ^0.0.9
     "@testing-library/jest-dom": 5.16.2
     "@testing-library/react": 12.1.4
