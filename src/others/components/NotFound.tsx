@@ -10,9 +10,9 @@ export function NotFound() {
 
   return (
     <React.Fragment>
-      <div className={styles.notFoundFlex}>
+      <div className={styles.notFoundWrapper}>
         <h1>404</h1>
-        <Text alignment="center">{t("page_not_exist")}</Text>
+        <Text alignment="left">{t("page_not_exist")}</Text>
         <Spacer />
         <Link to="/">{t("go_to_homepage")}</Link>
       </div>

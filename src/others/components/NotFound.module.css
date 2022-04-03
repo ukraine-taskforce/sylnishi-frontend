@@ -1,7 +1,18 @@
-.notFoundFlex {
+.notFoundWrapper {
   display: flex;
   flex-direction: column;
   justify-items: center;
-  text-align: center;
+  text-align: left;
   height: 100%;
+  color: var(--color-secondary);
+}
+
+.notFoundWrapper > h1 {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 700;
+}
+
+.notFoundWrapper p {
+  font-weight: 500;
 }
