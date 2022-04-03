@@ -28,9 +28,7 @@ export const ServiceList: React.FunctionComponent<ServiceListProps> = ({ title, 
   }));
 
   return (
-    <>
     <ActionList title={title} actions={actions}/>
-    </>
   );
 };
 
