@@ -21,16 +21,13 @@ export function useCountriesQuery() {
 
   return useQuery<Country[]>(`locationQuery${i18n.language}`, async () => {
     try {
-      const result = await fetch(`./assets/dataset.csv`)
-        .then((res) => {
-          if (!res.ok) throw new Error(res.statusText);
+      const response = await fetch(`./assets/dataset.csv`);
 
-          return res;
-        })
-        .then((res) => res.text());
-
-      const ret = Object.values(parseServicesListCSV(result));
-      return ret;
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      const text = await response.text();
+      return Object.values(parseServicesListCSV(text));
     } catch (error) {
       if (process.env.NODE_ENV !== 'production') {
         return API_MOCK;
