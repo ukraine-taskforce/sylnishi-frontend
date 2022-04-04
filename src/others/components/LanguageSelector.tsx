@@ -1,10 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-
 import styles from "./LanguageSelector.module.css";
-
 import { AvailableLang, availableLangs, storeLanguage } from "../contexts/i18n";
 import { ImgDropdown } from "../../medias/images/UGT_Asset_UI_Dropdown";
+import { ImgDropdownUp } from "../../medias/images/UGT_Asset_UI_Dropdown_up";
 import { Card } from "./Card";
 import { Button } from "./Button";
 import { FlagIcon } from "./FlagIcon";
@@ -28,9 +27,9 @@ function useOutsideClick(ref: React.RefObject<HTMLElement>, onClick: () => void)
         onClick();
       }
     };
-    document.addEventListener("click", handleClickOutside);
+    document.addEventListener("click", handleClickOutside, { capture: true });
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside, { capture: true });
     };
   }, [ref, onClick]);
 }
@@ -51,11 +50,23 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
     setExpanded(false);
   };
 
+  const handleClick = React.useCallback((event: React.MouseEvent) => {
+    setExpanded((prevState) => !prevState);
+  }, []);
+
   return (
-    <div ref={ref} className={styles.selector} onClick={() => setExpanded(!expanded)}>
+    <div ref={ref} className={styles.selector} onClick={handleClick}>
       <Button className={`${styles.langCard} ${expanded ? styles.activeBorder : ""}`}>
         <Flag className={styles.flagIcon} lang={currentLang} />
-        <ImgDropdown className={styles.dropdownIcon} alt="" fill="var(--color-secondary-dark)" />
+        {expanded ? (
+          <ImgDropdownUp
+            className={styles.dropdownIcon}
+            alt=""
+            fill="var(--color-secondary-dark)"
+          />
+        ) : (
+          <ImgDropdown className={styles.dropdownIcon} alt="" fill="var(--color-secondary-dark)" />
+        )}
       </Button>
       {expanded && (
         <Card className={styles.dropdown}>

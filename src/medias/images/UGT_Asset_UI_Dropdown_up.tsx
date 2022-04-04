@@ -1,11 +1,15 @@
 import React from "react";
 
-export interface ImgDropdownProps extends React.SVGProps<SVGSVGElement> {
+export interface ImgDropdownPropsUp extends React.SVGProps<SVGSVGElement> {
   alt: string;
   fill?: string;
 }
 
-export const ImgDropdown: React.FunctionComponent<ImgDropdownProps> = ({ alt, fill, ...props }) => {
+export const ImgDropdownUp: React.FunctionComponent<ImgDropdownPropsUp> = ({
+  alt,
+  fill,
+  ...props
+}) => {
   return (
     <svg
       width="14"
@@ -17,7 +21,7 @@ export const ImgDropdown: React.FunctionComponent<ImgDropdownProps> = ({ alt, fi
     >
       {Boolean(alt) && <title>{alt}</title>}
       <path
-        d="M13 1L7 7L1 1"
+        d="M1 7L7 1L13 7"
         stroke="#0D1234"
         stroke-width="1.5"
         stroke-linecap="round"

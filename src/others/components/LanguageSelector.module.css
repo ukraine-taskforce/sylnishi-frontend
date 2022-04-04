@@ -54,5 +54,5 @@
 }
 
 .dropdownItem:not(:last-child) {
-  padding-block-end: 10px;
+  padding-block-end: 16px;
 }
