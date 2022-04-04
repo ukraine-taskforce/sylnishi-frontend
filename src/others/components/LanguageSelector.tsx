@@ -50,10 +50,9 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
     setExpanded(false);
   };
 
-  const handleClick = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleClick = React.useCallback((event: React.MouseEvent) => {
     setExpanded((prevState) => !prevState);
-  }, [prevState] );
+  }, []);
 
   return (
     <div ref={ref} className={styles.selector} onClick={handleClick}>
