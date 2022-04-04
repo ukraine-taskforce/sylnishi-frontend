@@ -20,14 +20,14 @@ Primary.args = {
   services: [
     {
       id: 'request',
-      name: 'Request supplies',
-      type: SERVICE_TYPE.SUPPLIES,
+      category: 'Request supplies',
+      type: SERVICE_TYPE.INTERNAL,
       path: 'https://requests.ugtf.app',
     },
     {
       id: 'psyche',
-      name: 'Psychological support',
-      type: SERVICE_TYPE.CHAT,
+      category: 'Psychological support',
+      type: SERVICE_TYPE.EXTERNAL,
       path: '/',
     },
   ],

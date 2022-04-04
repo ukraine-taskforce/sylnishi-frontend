@@ -22,19 +22,19 @@ Primary.args = {
     services: [
       {
         id: 'internal',
-        name: 'An internal link',
-        type: SERVICE_TYPE.SUPPLIES,
+        category: 'An internal link',
+        type: SERVICE_TYPE.INTERNAL,
         path: 'https://requests.ugtf.app',
       },
       {
         id: 'psyche',
-        name: 'Internal chat link',
-        type: SERVICE_TYPE.CHAT,
+        category: 'Internal chat link',
+        type: SERVICE_TYPE.INTERNAL,
         path: '/foo',
       },
       {
         id: 'uk_external_1',
-        name: 'Top trusted service 1',
+        category: 'Top trusted service 1',
         type: SERVICE_TYPE.EXTERNAL,
         path: '/',
       },

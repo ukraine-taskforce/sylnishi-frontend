@@ -44,7 +44,7 @@ function parseRow(
   const country: Country = countries[countryName];
   country.services.push({
     id,
-    name: row[headerToIndex[SERVICE_DATASET_COLUMNS.CATEGORY]],
+    category: row[headerToIndex[SERVICE_DATASET_COLUMNS.CATEGORY]],
     type: row[headerToIndex[SERVICE_DATASET_COLUMNS.TYPE]] as SERVICE_TYPE,
     path: row[headerToIndex[SERVICE_DATASET_COLUMNS.HYPERLINK]],
   });

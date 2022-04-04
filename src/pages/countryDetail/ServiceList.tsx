@@ -22,7 +22,7 @@ export const ServiceList: React.FunctionComponent<ServiceListProps> = ({ title, 
       : navigate(service.path);
 
   const actions: Action[] = services.map((service: Service) => ({
-    title: service.name,
+    title: service.category,
     onAction: () => openService(service),
     trailing: <TrailingIcon service={service} />,
     leading: <LeadingIcon service={service} />,
@@ -32,24 +32,22 @@ export const ServiceList: React.FunctionComponent<ServiceListProps> = ({ title, 
 };
 
 function LeadingIcon({ service }: { service: Service }) {
-  switch (service.type) {
-    case SERVICE_TYPE.SUPPLIES:
+  switch (service.category) {
+    case 'Request supplies':
       return <ImgSupply fill="var(--color-secondary-dark)"></ImgSupply>;
-    case SERVICE_TYPE.CHAT:
+    case 'Chat':
       return <ImgSpeech fill="var(--color-secondary-dark)"></ImgSpeech>;
-    case SERVICE_TYPE.EXTERNAL:
     default:
       return null;
   }
 }
 
 function TrailingIcon({ service }: { service: Service }) {
-  switch (service.type) {
-    case SERVICE_TYPE.SUPPLIES:
+  switch (service.category) {
+    case 'Request supplies':
       return <ImgNext fill="var(--color-secondary-dark)"></ImgNext>;
-    case SERVICE_TYPE.CHAT:
+    case 'Chat':
       return <ImgMessenger fill="var(--color-secondary-dark)"></ImgMessenger>;
-    case SERVICE_TYPE.EXTERNAL:
     default:
       return <ImgExternalLink fill="var(--color-secondary-dark)"></ImgExternalLink>;
   }
