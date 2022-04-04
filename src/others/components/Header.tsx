@@ -27,8 +27,8 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <div className={styles.navWrapper}>
-      <nav className={styles.navigator}>
+    <header className={styles.navWrapper}>
+      <div className={styles.headerBackground}>
         <AssetRect className={styles.colorAccent}></AssetRect>
         <div className={styles.elementsWrapper}>
           {Boolean(backLink) && (
@@ -45,7 +45,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
           <Spacer flex={1} />
           {hasLangSelector && <LanguageSelector />}
         </div>
-      </nav>
-    </div>
+      </div>
+    </header>
   );
 };
