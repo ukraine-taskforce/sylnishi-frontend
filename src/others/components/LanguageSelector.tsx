@@ -20,11 +20,7 @@ const Flag = ({ lang, className }: { lang: AvailableLang; className?: string }) 
   );
 };
 
-function useOutsideClick(
-  ref: React.RefObject<HTMLElement>,
-  onClick: () => void,
-  capture?: boolean
-) {
+function useOutsideClick(ref: React.RefObject<HTMLElement>, onClick: () => void) {
   React.useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (ref.current && !ref.current.contains(event.target)) {
