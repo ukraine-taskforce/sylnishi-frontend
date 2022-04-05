@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ImgFlagCz } from "../../medias/images/UGT_Asset_FlagSelector_CZ";
+import { ImgFlagCz } from "../../medias/images/UGT_Asset_FlagSelector_CS";
 import { ImgFlagDa } from "../../medias/images/UGT_Asset_FlagSelector_DA";
 import { ImgFlagDe } from "../../medias/images/UGT_Asset_FlagSelector_DE";
 import { ImgFlagEn } from "../../medias/images/UGT_Asset_FlagSelector_EN";
@@ -40,6 +40,8 @@ export type AvailableISO =
   | "ee"
   | "hu"
   | "it"
+  | "jp"
+  | "md"
   | "pl"
   | "ro"
   | "sk"
@@ -55,6 +57,8 @@ export const ISO2RFC = {
   ee: "et",
   hu: "hu",
   it: "it",
+  jp: "ja",
+  md: "mo",
   pl: "pl",
   ro: "ro",
   sk: "sk",
@@ -87,7 +91,7 @@ export interface FlagProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const FlagIcon: FC<FlagProps> = ({ lang, alt, ...props }) => {
-  lang = lang?.toLocaleLowerCase();
+  lang = lang?.toLowerCase();
   if (lang in FLAG_MAP) {
     return React.createElement(FLAG_MAP[lang as AvailableRFC], { alt: alt, ...props });
   }
