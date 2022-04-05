@@ -1,94 +1,83 @@
-import { Country } from "./api";
+import { Country } from './country';
+import { SERVICE_TYPE } from './service';
 
 export const API_MOCK: Country[] = [
   {
-    id: "ua",
-    name: "Ukraine",
-    info: {
-      services: {
-        inhouse: [
-          {
-            id: "request",
-            name: "Request supplies",
-            type: "supplies",
-            path: "https://requests.ugtf.app",
-          },
-          {
-            id: "psyche",
-            name: "Psychological support",
-            type: "chat",
-            path: "/",
-          },
-        ],
-        external: [
-          {
-            id: "uk_external_1",
-            name: "Top trusted service 1",
-            type: "external",
-            path: "/",
-          },
-          {
-            id: "uk_external_2",
-            name: "Top trusted service 2",
-            type: "external",
-            path: "/",
-          },
-          {
-            id: "uk_external_3",
-            name: "Top trusted service 3",
-            type: "external",
-            path: "/",
-          },
-          {
-            id: "uk_external_4",
-            name: "Top trusted service 4",
-            type: "external",
-            path: "/",
-          },
-        ],
+    id: 'ua',
+    name: 'Ukraine',
+    services: [
+      {
+        id: 'request',
+        category: 'Request supplies',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: 'https://requests.ugtf.app',
       },
-    },
+      {
+        id: 'psyche',
+        category: 'Psychological support',
+        type: SERVICE_TYPE.INTERNAL,
+        path: '/',
+      },
+      {
+        id: 'uk_external_1',
+        category: 'Top trusted service 1',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+      {
+        id: 'uk_external_2',
+        category: 'Top trusted service 2',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+      {
+        id: 'uk_external_3',
+        category: 'Top trusted service 3',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+      {
+        id: 'uk_external_4',
+        category: 'Top trusted service 4',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+    ],
   },
   {
-    id: "de",
-    name: "Germany",
-    info: {
-      services: {
-        inhouse: [
-          {
-            id: "psyche",
-            name: "Psychological support",
-            type: "chat",
-            path: "/",
-          },
-        ],
-        external: [
-          {
-            id: "de_external_1",
-            name: "Top trusted service 1",
-            type: "external",
-            path: "/",
-          },
-          {
-            id: "de_external_2",
-            name: "Top trusted service 2",
-            type: "external",
-            path: "/",
-          },
-          {
-            id: "de_external_3",
-            name: "Top trusted service 3",
-            type: "external",
-            path: "/",
-          },
-          {
-            id: "de_external_4",
-            name: "Top trusted service 4",
-            type: "external",
-            path: "/",
-          },
-        ],
+    id: 'de',
+    name: 'Germany',
+    services: [
+      {
+        id: 'psyche',
+        category: 'Psychological support',
+        type: SERVICE_TYPE.INTERNAL,
+        path: '/',
       },
-    },
+      {
+        id: 'de_external_1',
+        category: 'Top trusted service 1',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+      {
+        id: 'de_external_2',
+        category: 'Top trusted service 2',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+      {
+        id: 'de_external_3',
+        category: 'Top trusted service 3',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+      {
+        id: 'de_external_4',
+        category: 'Top trusted service 4',
+        type: SERVICE_TYPE.EXTERNAL,
+        path: '/',
+      },
+    ],
   },
 ];

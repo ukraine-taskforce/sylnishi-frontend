@@ -1,5 +1,5 @@
-import React from "react";
-import { ID } from "./api";
+import React from 'react';
+import { ID } from './service';
 
 export interface FormData {
   people: {
@@ -17,18 +17,18 @@ export interface FormContextValue {
   clearStore: () => void;
 }
 
-export const PEOPLE_TYPES: { key: "adults" | "children" | "infants"; explanation_key: string }[] = [
+export const PEOPLE_TYPES: { key: 'adults' | 'children' | 'infants'; explanation_key: string }[] = [
   {
-    key: "adults",
-    explanation_key: "adults_details",
+    key: 'adults',
+    explanation_key: 'adults_details',
   },
   {
-    key: "children",
-    explanation_key: "children_details",
+    key: 'children',
+    explanation_key: 'children_details',
   },
   {
-    key: "infants",
-    explanation_key: "infants_details",
+    key: 'infants',
+    explanation_key: 'infants_details',
   },
 ];
 
