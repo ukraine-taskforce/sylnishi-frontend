@@ -37,6 +37,10 @@
   margin: auto;
 }
 
+.leftAlign {
+  text-align: left;
+}
+
 .leadingIcon,
 .trailingIcon {
   display: flex;

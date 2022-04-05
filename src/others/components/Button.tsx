@@ -43,7 +43,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     <button className={btnClasses} style={{ width: fullWidth ? "100%" : "auto" }} {...props}>
       <div className={styles.flexContainer}>
         {Boolean(leadingIcon) && <span className={styles.leadingIcon}>{leadingIcon}</span>}
-        <span className={styles.label}>{children}</span>
+        <span className={`${styles.label} ${styles.leftAlign}`}>{children}</span>
         <Spacer flex={1}></Spacer>
         {Boolean(trailingIcon) && <span className={styles.trailingIcon}>{trailingIcon}</span>}
       </div>
