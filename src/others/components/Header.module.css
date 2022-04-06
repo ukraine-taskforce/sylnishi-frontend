@@ -1,5 +1,6 @@
 .navWrapper {
   position: sticky;
+  -webkit-position: sticky;
   top: -16px;
   z-index: 1;
   height: calc(var(--header-height) + 16px);
