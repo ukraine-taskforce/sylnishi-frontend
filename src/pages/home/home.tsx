@@ -38,7 +38,7 @@ export function Home() {
         leading: (
           <FlagIcon
             alt=""
-            lang={ISO2RFC[country.id as AvailableISO]}
+            lang={ISO2RFC[country.id.toLowerCase() as AvailableISO]}
             className={styles.countryIcon}
           />
         ),

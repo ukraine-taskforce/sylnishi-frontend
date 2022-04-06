@@ -23,9 +23,9 @@ export const ImgDropdownUp: React.FunctionComponent<ImgDropdownPropsUp> = ({
       <path
         d="M1 7L7 1L13 7"
         stroke="#0D1234"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
