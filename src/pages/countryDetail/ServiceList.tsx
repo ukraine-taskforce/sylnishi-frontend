@@ -1,5 +1,5 @@
 import React from 'react';
-import { Service, SERVICE_TYPE } from '../../others/contexts/service';
+import { Service } from '../../others/contexts/service';
 import { useNavigate } from 'react-router-dom';
 import { ImgSupply } from '../../medias/images/UGT_Asset_UI_Supply';
 import { ImgSpeech } from '../../medias/images/UGT_Asset_UI_Speech';
