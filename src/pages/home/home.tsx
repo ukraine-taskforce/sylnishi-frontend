@@ -34,7 +34,7 @@ export function Home() {
   const actions: Action[] =
     countries?.map((country): Action => {
       return {
-        title: country.name,
+        title: t(country.name),
         leading: (
           <FlagIcon
             alt=""
