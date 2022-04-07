@@ -24,7 +24,7 @@ export function CountryDetail({ country }: CountryDetailProps) {
           lang={ISO2RFC[country.id.toLowerCase() as AvailableISO]}
           className={styles.countryIcon}
         ></FlagIcon>
-        <h1 className={styles.headline}>{country.name}</h1>
+        <h1 className={styles.headline}>{t(country.name)}</h1>
       </div>
       {inhouse && inhouse.length > 0 && (
         <>

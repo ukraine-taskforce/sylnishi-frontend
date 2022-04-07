@@ -1,4 +1,5 @@
 import React from 'react';
+import { t } from 'i18next';
 import { Service } from '../../others/contexts/service';
 import { useNavigate } from 'react-router-dom';
 import { ImgSupply } from '../../medias/images/UGT_Asset_UI_Supply';
@@ -22,7 +23,7 @@ export const ServiceList: React.FunctionComponent<ServiceListProps> = ({ title, 
       : navigate(service.path);
 
   const actions: Action[] = services.map((service: Service) => ({
-    title: service.category,
+    title: t(service.category),
     onAction: () => openService(service),
     trailing: <TrailingIcon service={service} />,
     leading: <LeadingIcon service={service} />,
