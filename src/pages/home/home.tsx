@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -21,6 +21,7 @@ import { ImgInfo } from "../../medias/images/UGT_Asset_UI_Info";
 import { Loader } from "../../others/components/Loader";
 import { useTrackingValue } from "../../others/contexts/tracking";
 import { AvailableISO, FlagIcon, ISO2RFC } from "../../others/components/FlagIcon";
+import ReactGA from "react-ga4";
 
 export function Home() {
   const { t } = useTranslation();
@@ -30,6 +31,12 @@ export function Home() {
   const { updateValue: updateTracking } = useTrackingValue();
 
   const { data: countries } = useCountriesQuery();
+
+  useEffect(() => {
+    document.title = t("home_page_title");
+    ReactGA.initialize(process.env.REACT_APP_GA4_ID as string);
+    ReactGA.send("pageview");
+  }, [t]);
 
   const actions: Action[] =
     countries?.map((country): Action => {
