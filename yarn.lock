@@ -16434,6 +16434,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-ga4@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "react-ga4@npm:1.4.1"
+  checksum: 4c33ecb47dfc26c241a6af8e2b08b29b6c059f40e456e93d1c2b65c995edce18f32d9777295774ec992d968d7c5efdd105eb62398972d85ff2e2b6dad8646a26
+  languageName: node
+  linkType: hard
+
 "react-helmet-async@npm:^1.0.7":
   version: 1.2.3
   resolution: "react-helmet-async@npm:1.2.3"
@@ -18690,6 +18697,7 @@ __metadata:
     prettier: 2.5.1
     react: 17.0.2
     react-dom: 17.0.2
+    react-ga4: ^1.4.1
     react-i18next: 11.15.5
     react-query: 3.34.16
     react-router-dom: 6
