@@ -12,7 +12,7 @@ jobs:
     environment: prod
     env:
       S3_URL: ${{ secrets.S3_URL }}
-      REACT_APP_GA4_ID: ${{ secrets.PROD_GA4_ID }}
+      REACT_APP_GA4_ID: ${{ secrets.GA4_ID }}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
