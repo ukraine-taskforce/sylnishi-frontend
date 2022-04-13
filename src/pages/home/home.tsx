@@ -19,7 +19,6 @@ import { ImgShare } from "../../medias/images/UGT_Asset_UI_Share";
 import { Action, ActionList } from "../../others/components/ActionList";
 import { ImgInfo } from "../../medias/images/UGT_Asset_UI_Info";
 import { Loader } from "../../others/components/Loader";
-import { useTrackingValue } from "../../others/contexts/tracking";
 import { AvailableISO, FlagIcon, ISO2RFC } from "../../others/components/FlagIcon";
 import ReactGA from "react-ga4";
 
@@ -28,7 +27,6 @@ export function Home() {
   const navigate = useNavigate();
   const { share } = useShare();
   const [displayModal, setDisplayModal] = React.useState(false);
-  const { updateValue: updateTracking } = useTrackingValue();
 
   const { data: countries } = useCountriesQuery();
 
@@ -85,7 +83,6 @@ export function Home() {
             leadingIcon={<ImgInfo alt="" />}
             variant="white"
             onClick={() => {
-              updateTracking({ about: true });
               setDisplayModal(true);
             }}
           >
@@ -96,7 +93,6 @@ export function Home() {
               trailingIcon={<ImgShare alt="" />}
               variant="white"
               onClick={() => {
-                updateTracking({ shared: true });
                 share();
               }}
             >
@@ -124,7 +120,6 @@ export function Home() {
               centered
               variant="highlight"
               onClick={() => {
-                updateTracking({ shared: true });
                 share();
               }}
               trailingIcon={

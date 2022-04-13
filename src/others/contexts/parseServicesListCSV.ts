@@ -29,7 +29,7 @@ function parseRow(
   const id = row[headerToIndex[SERVICE_DATASET_COLUMNS.ID]];
 
   if (!countryName || !id) {
-    console.warn(`Dataset row missing country name and id.`);
+    // console.warn(`Dataset row missing country name and id.`);
     return;
   }
 
