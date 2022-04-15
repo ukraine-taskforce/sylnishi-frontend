@@ -50,12 +50,12 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
     setExpanded(false);
   };
 
-  const handleClick = React.useCallback((event: React.MouseEvent) => {
-    setExpanded((prevState) => !prevState);
-  }, []);
+  const toggleExpand = React.useCallback(() => {
+    setExpanded(!expanded);
+  }, [expanded]);
 
   return (
-    <div ref={ref} className={styles.selector} onClick={handleClick}>
+    <div ref={ref} className={styles.selector} onClick={toggleExpand}>
       <Button className={`${styles.langCard} ${expanded ? styles.activeBorder : ""}`}>
         <Flag className={styles.flagIcon} lang={currentLang} />
         {expanded ? (
