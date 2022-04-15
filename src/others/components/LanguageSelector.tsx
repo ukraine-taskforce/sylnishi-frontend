@@ -47,7 +47,7 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
   const selectLang = (lang: string) => {
     i18n.changeLanguage(lang);
     storeLanguage(lang as AvailableLang);
-    setExpanded(false);
+    // selection is closed by propagating to the root div
   };
 
   const toggleExpand = React.useCallback(() => {
