@@ -47,15 +47,15 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
   const selectLang = (lang: string) => {
     i18n.changeLanguage(lang);
     storeLanguage(lang as AvailableLang);
-    setExpanded(false);
+    // selection is closed by propagating to the root div
   };
 
-  const handleClick = React.useCallback((event: React.MouseEvent) => {
-    setExpanded((prevState) => !prevState);
-  }, []);
+  const toggleExpand = React.useCallback(() => {
+    setExpanded(!expanded);
+  }, [expanded]);
 
   return (
-    <div ref={ref} className={styles.selector} onClick={handleClick}>
+    <div ref={ref} className={styles.selector} onClick={toggleExpand}>
       <Button className={`${styles.langCard} ${expanded ? styles.activeBorder : ""}`}>
         <Flag className={styles.flagIcon} lang={currentLang} />
         {expanded ? (
