@@ -1,1 +1,0 @@
-export { CountryDetail } from "./countryDetail";
