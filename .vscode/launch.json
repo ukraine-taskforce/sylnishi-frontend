@@ -7,8 +7,16 @@
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
+            "name": "Launch Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "start-dev-server"
+        },
+        {
+            "type": "pwa-msedge",
+            "request": "launch",
+            "name": "Launch Edge",
+            "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
             "preLaunchTask": "start-dev-server"
         }

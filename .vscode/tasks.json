@@ -4,14 +4,14 @@
         {
             "label": "start-dev-server",
             "type": "npm",
-            "script": "start",
+            "script": "start-headless",
             "isBackground": true,
             "problemMatcher": {
                 "owner": "npm",
                 "background": {
                     "activeOnStart": true,
-                    "beginsPattern": ".*",
-                    "endsPattern": "Finished.+"
+                    "beginsPattern": "Compiling...",
+                    "endsPattern": "Compiled successfully!.*"
                 },
                 "pattern": {
                     "regexp": "",
