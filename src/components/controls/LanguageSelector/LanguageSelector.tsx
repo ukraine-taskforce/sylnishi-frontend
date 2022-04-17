@@ -1,11 +1,12 @@
 import { Button } from "@components/controls/Button/Button";
 import { FlagIcon } from "@components/icons/FlagIcon/FlagIcon";
 import { Card } from "@components/views/Card/Card";
+import { AvailableLang, availableLangs } from "@contexts/i18n";
 import { ImgDropdown } from "@medias/images/UGT_Asset_UI_Dropdown";
 import { ImgDropdownUp } from "@medias/images/UGT_Asset_UI_Dropdown_up";
+import * as LS from "@utils/helpers/localStorage";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { AvailableLang, availableLangs, storeLanguage } from "../../../contexts/i18n";
 import styles from "./LanguageSelector.module.css";
 
 export interface LanguageSelectorProps {}
@@ -46,7 +47,7 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
 
   const selectLang = (lang: string) => {
     i18n.changeLanguage(lang);
-    storeLanguage(lang as AvailableLang);
+    LS.storeLanguage(lang as AvailableLang);
     // selection is closed by propagating to the root div
   };
 

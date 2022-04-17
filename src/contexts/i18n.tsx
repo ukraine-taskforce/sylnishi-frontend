@@ -1,5 +1,6 @@
 import en from "@medias/translations/en.json";
 import uk from "@medias/translations/uk.json";
+import * as LS from "@utils/helpers/localStorage";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
@@ -17,7 +18,7 @@ export const availableLangs = Object.keys(resources).sort();
 
 function getInitLang(): AvailableLang {
   let choice: AvailableLang = "uk";
-  const prevSession = localStorage.getItem("languageSetting");
+  const prevSession = LS.loadLanguage();
   if (prevSession != null && availableLangs.includes(prevSession)) {
     // use language from previous session
     choice = prevSession as AvailableLang;
@@ -33,12 +34,8 @@ function getInitLang(): AvailableLang {
       }
     }
   }
-  storeLanguage(choice);
+  LS.storeLanguage(choice);
   return choice;
-}
-
-export function storeLanguage(language: AvailableLang) {
-  localStorage.setItem("languageSetting", language);
 }
 
 i18n
