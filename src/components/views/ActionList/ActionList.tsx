@@ -1,6 +1,6 @@
+import { Button } from "@components/controls/Button/Button";
+import { Text } from "@components/typography/Text/Text";
 import React from "react";
-import { Button } from "../../controls/Button/Button";
-import { Text } from "../../typography/Text/Text";
 import styles from "./ActionList.module.css";
 
 export interface Action {

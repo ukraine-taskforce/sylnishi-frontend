@@ -1,13 +1,13 @@
+import { Content } from "@components/layout/Content/Content";
+import { Header } from "@components/layout/Header/Header";
+import { CountryDetail } from "@components/views/CountryDetail/CountryDetail";
+import { Loader } from "@components/views/Loader/Loader";
+import { NotFound } from "@components/views/NotFound/NotFound";
+import { useCountriesQuery } from "@contexts/api";
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { Header } from "../../../components/layout/Header/Header";
-import { Content } from "../../../components/layout/Content/Content";
-import { useCountriesQuery } from "../../../contexts/api";
-import { Loader } from "../../../components/views/Loader/Loader";
-import { NotFound } from "../../../components/views/NotFound/NotFound";
-import { CountryDetail } from "../../../components/views/CountryDetail/CountryDetail";
 import ReactGA from "react-ga4";
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 interface CountryDetailProps {}
 

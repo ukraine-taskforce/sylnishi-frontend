@@ -1,13 +1,13 @@
-import React from 'react';
+import { Action, ActionList } from '@components/views/ActionList/ActionList';
+import { ImgNext } from '@medias/images/UGT_Asset_UI_ButtonNext';
+import { ImgExternalLink } from '@medias/images/UGT_Asset_UI_ExternalLink';
+import { ImgMessenger } from '@medias/images/UGT_Asset_UI_Messenger';
+import { ImgSpeech } from '@medias/images/UGT_Asset_UI_Speech';
+import { ImgSupply } from '@medias/images/UGT_Asset_UI_Supply';
+import { Service } from '@models/service';
 import { t } from 'i18next';
-import { Service } from '../../../contexts/service';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ImgSupply } from '../../../medias/images/UGT_Asset_UI_Supply';
-import { ImgSpeech } from '../../../medias/images/UGT_Asset_UI_Speech';
-import { ImgNext } from '../../../medias/images/UGT_Asset_UI_ButtonNext';
-import { ImgMessenger } from '../../../medias/images/UGT_Asset_UI_Messenger';
-import { ImgExternalLink } from '../../../medias/images/UGT_Asset_UI_ExternalLink';
-import { Action, ActionList } from '../ActionList/ActionList';
 
 export interface ServiceListProps {
   title: string;

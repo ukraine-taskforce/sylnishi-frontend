@@ -1,8 +1,8 @@
+import { Content } from "@components/layout/Content/Content";
+import { Header } from "@components/layout/Header/Header";
+import { Spacer } from "@components/layout/Spacer/Spacer";
+import { NotFound } from "@components/views/NotFound/NotFound";
 import React from "react";
-import { Spacer } from "../../../components/layout/Spacer/Spacer";
-import { Header } from "../../../components/layout/Header/Header";
-import { Content } from "../../../components/layout/Content/Content";
-import { NotFound } from "../../../components/views/NotFound/NotFound";
 
 export function NotFoundPage() {
   return (

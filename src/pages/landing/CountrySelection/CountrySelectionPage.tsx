@@ -1,26 +1,24 @@
+import { Button } from "@components/controls/Button/Button";
+import { FlagIcon } from "@components/icons/FlagIcon/FlagIcon";
+import { Content } from "@components/layout/Content/Content";
+import { Header } from "@components/layout/Header/Header";
+import { Spacer } from "@components/layout/Spacer/Spacer";
+import { Text } from "@components/typography/Text/Text";
+import { Action, ActionList } from "@components/views/ActionList/ActionList";
+import { Loader } from "@components/views/Loader/Loader";
+import { Modal } from "@components/views/Modal/Modal";
+import { useCountriesQuery } from "@contexts/api";
+import { ImgBrand } from "@medias/images/UGT_Asset_Brand";
+import { ImgNext } from "@medias/images/UGT_Asset_UI_ButtonNext";
+import { ImgInfo } from "@medias/images/UGT_Asset_UI_Info";
+import { ImgShare } from "@medias/images/UGT_Asset_UI_Share";
+import { AvailableISO, ISO2RFC } from "@utils/constants/locale";
+import { isShareSupported, useShare } from "@utils/helpers/share";
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-
-import { Button } from "../../../components/controls/Button/Button";
-import { Header } from "../../../components/layout/Header/Header";
-import { Modal } from "../../../components/views/Modal/Modal";
-import { Spacer } from "../../../components/layout/Spacer/Spacer";
-import { Text } from "../../../components/typography/Text/Text";
-import { Content } from "../../../components/layout/Content/Content";
-import { useCountriesQuery } from "../../../contexts/api";
-import { isShareSupported, useShare } from "../../../utils/helpers/share";
-
-import styles from "./CountrySelectionPage.module.css";
-
-import { ImgBrand } from "../../../medias/images/UGT_Asset_Brand";
-import { ImgNext } from "../../../medias/images/UGT_Asset_UI_ButtonNext";
-import { ImgShare } from "../../../medias/images/UGT_Asset_UI_Share";
-import { Action, ActionList } from "../../../components/views/ActionList/ActionList";
-import { ImgInfo } from "../../../medias/images/UGT_Asset_UI_Info";
-import { Loader } from "../../../components/views/Loader/Loader";
-import { AvailableISO, FlagIcon, ISO2RFC } from "../../../components/icons/FlagIcon/FlagIcon";
 import ReactGA from "react-ga4";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import styles from "./CountrySelectionPage.module.css";
 
 export function CountrySelectionPage() {
   const { t } = useTranslation();

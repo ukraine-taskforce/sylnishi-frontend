@@ -1,10 +1,10 @@
+import { Card } from "@components/views/Card/Card";
+import React from "react";
 import { useTranslation } from "react-i18next";
-
-import { Card } from "../Card/Card";
+import { ImgClose } from "../../../medias/images/UGT_Asset_UI_Close";
 import styles from "./Modal.module.css";
 
-import { ImgClose } from "../../../medias/images/UGT_Asset_UI_Close";
-import React from "react";
+
 
 export interface ModalProps {
   handleClose: () => void;
@@ -27,7 +27,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({ handleClose, show, 
         <Card>
           {children}
           <button className={styles.closeButton} onClick={handleClose}>
-            <ImgClose alt={t("close")} fill="var(--color-action)"/>
+            <ImgClose alt={t("close")} fill="var(--color-action)" />
           </button>
         </Card>
       </section>

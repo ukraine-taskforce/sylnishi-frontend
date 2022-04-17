@@ -1,15 +1,12 @@
+import { LanguageSelector } from "@components/controls/LanguageSelector/LanguageSelector";
+import { Spacer } from "@components/layout/Spacer/Spacer";
+import { AssetName } from "@medias/images/UGT_Asset_Name";
+import { AssetRect } from "@medias/images/UGT_Asset_SVGRect";
+import { ImgBack } from "@medias/images/UGT_Asset_UI_Back";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
 import styles from "./Header.module.css";
-import { LanguageSelector } from "../../controls/LanguageSelector/LanguageSelector";
-import { Spacer } from "../Spacer/Spacer";
-
-import { ImgBack } from "../../../medias/images/UGT_Asset_UI_Back";
-
-import { AssetRect } from "../../../medias/images/UGT_Asset_SVGRect";
-import { AssetName } from "../../../medias/images/UGT_Asset_Name";
 
 export interface HeaderProps {
   backLink?: string;

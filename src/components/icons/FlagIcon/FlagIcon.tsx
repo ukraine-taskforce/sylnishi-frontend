@@ -1,71 +1,20 @@
+import { AvailableRFC } from "@utils/constants/locale";
 import React, { FC } from "react";
 import { FlagCZ } from "./FlagCZ";
-import { FlagDK } from "./FlagDK";
 import { FlagDE } from "./FlagDE";
-import { FlagGB } from "./FlagGB";
+import { FlagDK } from "./FlagDK";
 import { FlagEE } from "./FlagEE";
+import { FlagGB } from "./FlagGB";
 import { FlagHU } from "./FlagHU";
 import { FlagIT } from "./FlagIT";
 import { FlagJP } from "./FlagJP";
 import { FlagMD } from "./FlagMD";
 import { FlagPL } from "./FlagPL";
 import { FlagRO } from "./FlagRO";
-import { FlagSK } from "./FlagSK";
 import { FlagSE } from "./FlagSE";
+import { FlagSK } from "./FlagSK";
 import { FlagTR } from "./FlagTR";
 import { FlagUA } from "./FlagUA";
-
-export type AvailableRFC =
-  | "cs"
-  | "da"
-  | "de"
-  | "en"
-  | "et"
-  | "hu"
-  | "it"
-  | "ja"
-  | "mo"
-  | "pl"
-  | "ro"
-  | "sk"
-  | "sv"
-  | "tr"
-  | "uk";
-
-export type AvailableISO =
-  | "cz"
-  | "dk"
-  | "de"
-  | "gb"
-  | "ee"
-  | "hu"
-  | "it"
-  | "jp"
-  | "md"
-  | "pl"
-  | "ro"
-  | "sk"
-  | "se"
-  | "tr"
-  | "ua";
-
-export const ISO2RFC = {
-  cz: "cs",
-  dk: "da",
-  de: "de",
-  gb: "en",
-  ee: "et",
-  hu: "hu",
-  it: "it",
-  jp: "ja",
-  md: "mo",
-  pl: "pl",
-  ro: "ro",
-  sk: "sk",
-  se: "sv",
-  tr: "tr",
-  ua: "uk",
-};
 
 export const FLAG_MAP = {
   cs: FlagCZ,

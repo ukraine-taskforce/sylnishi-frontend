@@ -1,19 +1,19 @@
-import { SERVICE_TYPE } from './service';
-import { Country } from './country';
+import { Country } from "@models/country";
+import { SERVICE_TYPE } from "@models/service";
 
 export function parseServicesListCSV(csvText: string): { [key: string]: Country } {
   const countries: { [key: string]: Country } = {};
 
   const headerToIndex: { [key: string]: number } = {};
 
-  csvText.split('\n').forEach((line, index) => {
+  csvText.split("\n").forEach((line, index) => {
     // Header row
     if (index === 0) {
-      line.split(',').forEach((header, i) => {
+      line.split(",").forEach((header, i) => {
         headerToIndex[header] = i;
       });
     } else {
-      parseRow(line.split(','), countries, headerToIndex);
+      parseRow(line.split(","), countries, headerToIndex);
     }
   });
 
@@ -51,10 +51,10 @@ function parseRow(
 }
 
 const SERVICE_DATASET_COLUMNS = {
-  ID: 'ID',
-  COUNTRY: 'Country',
-  CATEGORY: 'Category',
-  HYPERLINK: 'Hyperlink',
-  ISO: 'ISO Alpha 2 Code',
-  TYPE: 'TYPE',
+  ID: "ID",
+  COUNTRY: "Country",
+  CATEGORY: "Category",
+  HYPERLINK: "Hyperlink",
+  ISO: "ISO Alpha 2 Code",
+  TYPE: "TYPE",
 };

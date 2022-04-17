@@ -1,8 +1,8 @@
+import { Spacer } from "@components/layout/Spacer/Spacer";
+import { Text } from "@components/typography/Text/Text";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Spacer } from "../../layout/Spacer/Spacer";
-import { Text } from "../../typography/Text/Text";
+import { Link } from "react-router-dom";
 import styles from "./NotFound.module.css";
 
 export function NotFound() {

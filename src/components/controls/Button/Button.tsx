@@ -1,6 +1,6 @@
+import { Spacer } from "@components/layout/Spacer/Spacer";
 import React from "react";
 import styles from "./Button.module.css";
-import { Spacer } from "../../layout/Spacer/Spacer";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "normal" | "highlight" | "white";

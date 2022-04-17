@@ -1,11 +1,12 @@
+import { FlagIcon } from "@components/icons/FlagIcon/FlagIcon";
+import { Spacer } from "@components/layout/Spacer/Spacer";
+import { ServiceList } from "@components/views/ServiceList/ServiceList";
+import { Country } from "@models/country";
+import { SERVICE_TYPE } from "@models/service";
+import { AvailableISO, ISO2RFC } from "@utils/constants/locale";
 import { t } from "i18next";
 import React from "react";
-import { AvailableISO, FlagIcon, ISO2RFC } from "../../icons/FlagIcon/FlagIcon";
-import { ServiceList } from "../ServiceList/ServiceList";
-import { Spacer } from "../../layout/Spacer/Spacer";
-import { Country } from "../../../contexts/country";
 import styles from "./CountryDetail.module.css";
-import { SERVICE_TYPE } from "../../../contexts/service";
 
 export interface CountryDetailProps {
   country: Country;

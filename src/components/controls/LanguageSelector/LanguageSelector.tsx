@@ -1,12 +1,12 @@
+import { Button } from "@components/controls/Button/Button";
+import { FlagIcon } from "@components/icons/FlagIcon/FlagIcon";
+import { Card } from "@components/views/Card/Card";
+import { ImgDropdown } from "@medias/images/UGT_Asset_UI_Dropdown";
+import { ImgDropdownUp } from "@medias/images/UGT_Asset_UI_Dropdown_up";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import styles from "./LanguageSelector.module.css";
 import { AvailableLang, availableLangs, storeLanguage } from "../../../contexts/i18n";
-import { ImgDropdown } from "../../../medias/images/UGT_Asset_UI_Dropdown";
-import { ImgDropdownUp } from "../../../medias/images/UGT_Asset_UI_Dropdown_up";
-import { Card } from "../../views/Card/Card";
-import { Button } from "../Button/Button";
-import { FlagIcon } from "../../icons/FlagIcon/FlagIcon";
+import styles from "./LanguageSelector.module.css";
 
 export interface LanguageSelectorProps {}
 

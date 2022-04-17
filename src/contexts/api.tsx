@@ -1,9 +1,8 @@
-import { useTranslation } from 'react-i18next';
-import { QueryClient, useQuery } from 'react-query';
-
-import { API_MOCK } from './apiMockData';
-import { Country } from './country';
-import { parseServicesListCSV } from './parseServicesListCSV';
+import { Country } from "@models/country";
+import { API_MOCK } from "@utils/constants/apiMockData";
+import { parseServicesListCSV } from "@utils/helpers/parseServicesListCSV";
+import { useTranslation } from "react-i18next";
+import { QueryClient, useQuery } from "react-query";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +25,7 @@ export function useCountriesQuery() {
       const text = await response.text();
       return Object.values(parseServicesListCSV(text));
     } catch (error) {
-      if (process.env.NODE_ENV !== 'production') {
+      if (process.env.NODE_ENV !== "production") {
         return API_MOCK;
       }
       throw error;
