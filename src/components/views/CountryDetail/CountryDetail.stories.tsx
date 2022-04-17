@@ -1,7 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { SERVICE_TYPE } from '@models/service';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 import { CountryDetail } from './CountryDetail';
-import { SERVICE_TYPE } from '../../../contexts/service';
 
 export default {
   title: 'Example/CountryDetail',
