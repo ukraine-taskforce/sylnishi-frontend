@@ -1,26 +1,28 @@
-import { Button } from "@components/controls/Button/Button";
-import { FlagIcon } from "@components/icons/FlagIcon/FlagIcon";
-import { Content } from "@components/layout/Content/Content";
-import { Header } from "@components/layout/Header/Header";
-import { Spacer } from "@components/layout/Spacer/Spacer";
-import { Text } from "@components/typography/Text/Text";
-import { Action, ActionList } from "@components/views/ActionList/ActionList";
-import { Loader } from "@components/views/Loader/Loader";
-import { Modal } from "@components/views/Modal/Modal";
-import { useCountriesQuery } from "@contexts/api";
-import { ImgBrand } from "@medias/images/UGT_Asset_Brand";
-import { ImgNext } from "@medias/images/UGT_Asset_UI_ButtonNext";
-import { ImgInfo } from "@medias/images/UGT_Asset_UI_Info";
-import { ImgShare } from "@medias/images/UGT_Asset_UI_Share";
-import { AvailableISO, ISO2RFC } from "@utils/constants/locale";
-import { isShareSupported, useShare } from "@utils/helpers/share";
-import React, { useEffect } from "react";
-import ReactGA from "react-ga4";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import styles from "./CountrySelectionPage.module.css";
+import { Button } from '@components/controls/Button/Button';
+import { FlagIcon } from '@components/icons/FlagIcon/FlagIcon';
+import { Content } from '@components/layout/Content/Content';
+import { Header } from '@components/layout/Header/Header';
+import { Spacer } from '@components/layout/Spacer/Spacer';
+import { Text } from '@components/typography/Text/Text';
+import { Action, ActionList } from '@components/views/ActionList/ActionList';
+import { Loader } from '@components/views/Loader/Loader';
+import { Modal } from '@components/views/Modal/Modal';
+import { useCountriesQuery } from '@contexts/api';
+import { ImgBrand } from '@medias/images/UGT_Asset_Brand';
+import { ImgNext } from '@medias/images/UGT_Asset_UI_ButtonNext';
+import { ImgInfo } from '@medias/images/UGT_Asset_UI_Info';
+import { ImgShare } from '@medias/images/UGT_Asset_UI_Share';
+import { AvailableISO, ISO2RFC } from '@utils/constants/locale';
+import { isShareSupported, useShare } from '@utils/helpers/share';
+import React, { useEffect } from 'react';
+import ReactGA from 'react-ga4';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import styles from './CountrySelectionPage.module.css';
 
-export function CountrySelectionPage() {
+export interface CountrySelectionPageProps {}
+
+export const CountrySelectionPage: React.FC<CountrySelectionPageProps> = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { share } = useShare();
@@ -29,14 +31,14 @@ export function CountrySelectionPage() {
   const { data: countries } = useCountriesQuery();
 
   useEffect(() => {
-    document.title = t("home_page_title");
+    document.title = t('home_page_title');
     ReactGA.initialize(process.env.REACT_APP_GA4_ID as string);
-    ReactGA.send("pageview");
+    ReactGA.send('pageview');
   }, [t]);
 
   const actions: Action[] =
-    countries?.map((country): Action => {
-      return {
+    countries?.map(
+      (country): Action => ({
         title: t(country.name),
         leading: (
           <FlagIcon
@@ -45,33 +47,29 @@ export function CountrySelectionPage() {
             className={styles.countryIcon}
           />
         ),
-        trailing: <ImgNext fill="var(--color-secondary-dark)"></ImgNext>,
+        trailing: <ImgNext fill="var(--color-secondary-dark)" />,
         onAction: () => navigate(`/${country.id.toLowerCase()}`),
-      };
-    }) ?? [];
+      })
+    ) ?? [];
 
   return (
-    <React.Fragment>
+    <>
       <Header hasHeadline hasLangSelector />
       <Content>
         {/* Welcome */}
         <div className={styles.welcome}>
-          <h1>{t("home_welcome")}</h1>
+          <h1>{t('home_welcome')}</h1>
           <Text>
-            {t("home_welcome_text")}
+            {t('home_welcome_text')}
             <b> — </b>
-            <b>{t("home_welcome_text_bold")}</b>
+            <b>{t('home_welcome_text_bold')}</b>
           </Text>
         </div>
 
         <Spacer size={50} />
 
         {/* Country selection */}
-        {countries != null ? (
-          <ActionList title={t("home_where")} actions={actions} />
-        ) : (
-          <Loader></Loader>
-        )}
+        {countries != null ? <ActionList title={t('home_where')} actions={actions} /> : <Loader />}
 
         <Spacer size={50} />
 
@@ -84,7 +82,7 @@ export function CountrySelectionPage() {
               setDisplayModal(true);
             }}
           >
-            <span className={styles.noWrap}>{t("about")}</span>
+            <span className={styles.noWrap}>{t('about')}</span>
           </Button>
           {isShareSupported() && (
             <Button
@@ -94,7 +92,7 @@ export function CountrySelectionPage() {
                 share();
               }}
             >
-              <span className={styles.noWrap}>{t("share")}</span>
+              <span className={styles.noWrap}>{t('share')}</span>
             </Button>
           )}
         </div>
@@ -102,15 +100,15 @@ export function CountrySelectionPage() {
         {/* About modal */}
         <Modal show={displayModal} handleClose={() => setDisplayModal(false)}>
           <Spacer size={50} />
-          <div style={{ display: "flex" }}>
+          <div style={{ display: 'flex' }}>
             <Spacer flex={1} />
             <ImgBrand className={styles.ugtLogo} alt="UGT Logo" />
             <Spacer flex={1} />
           </div>
           <Spacer size={20} />
-          <h1 style={{ textAlign: "center" }}>{t("about_dialog_head")}</h1>
+          <h1 style={{ textAlign: 'center' }}>{t('about_dialog_head')}</h1>
           <Spacer size={22} />
-          <Text alignment="center">{t("about_dialog_detailed")}</Text>
+          <Text alignment="center">{t('about_dialog_detailed')}</Text>
           <Spacer size={22} />
           {isShareSupported() && (
             <Button
@@ -121,14 +119,14 @@ export function CountrySelectionPage() {
                 share();
               }}
               trailingIcon={
-                <ImgShare style={{ height: "15px" }} fill="var(--color-white)" alt={t("share")} />
+                <ImgShare style={{ height: '15px' }} fill="var(--color-white)" alt={t('share')} />
               }
             >
-              {t("share")}
+              {t('share')}
             </Button>
           )}
         </Modal>
       </Content>
-    </React.Fragment>
+    </>
   );
-}
+};

@@ -14,6 +14,28 @@ export interface ServiceListProps {
   services: Service[];
 }
 
+const LeadingIcon = ({ service }: { service: Service }) => {
+  switch (service.category) {
+    case 'Request supplies':
+      return <ImgSupply fill="var(--color-secondary-dark)" />;
+    case 'Chat':
+      return <ImgSpeech fill="var(--color-secondary-dark)" />;
+    default:
+      return null;
+  }
+};
+
+const TrailingIcon = ({ service }: { service: Service }) => {
+  switch (service.category) {
+    case 'Request supplies':
+      return <ImgNext fill="var(--color-secondary-dark)" />;
+    case 'Chat':
+      return <ImgMessenger fill="var(--color-secondary-dark)" />;
+    default:
+      return <ImgExternalLink fill="var(--color-secondary-dark)" />;
+  }
+};
+
 export const ServiceList: React.FunctionComponent<ServiceListProps> = ({ title, services }) => {
   const navigate = useNavigate();
 
@@ -31,25 +53,3 @@ export const ServiceList: React.FunctionComponent<ServiceListProps> = ({ title, 
 
   return <ActionList title={title} actions={actions} />;
 };
-
-function LeadingIcon({ service }: { service: Service }) {
-  switch (service.category) {
-    case 'Request supplies':
-      return <ImgSupply fill="var(--color-secondary-dark)"></ImgSupply>;
-    case 'Chat':
-      return <ImgSpeech fill="var(--color-secondary-dark)"></ImgSpeech>;
-    default:
-      return null;
-  }
-}
-
-function TrailingIcon({ service }: { service: Service }) {
-  switch (service.category) {
-    case 'Request supplies':
-      return <ImgNext fill="var(--color-secondary-dark)"></ImgNext>;
-    case 'Chat':
-      return <ImgMessenger fill="var(--color-secondary-dark)"></ImgMessenger>;
-    default:
-      return <ImgExternalLink fill="var(--color-secondary-dark)"></ImgExternalLink>;
-  }
-}

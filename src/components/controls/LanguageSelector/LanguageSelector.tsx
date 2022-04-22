@@ -1,23 +1,23 @@
-import { Button } from "@components/controls/Button/Button";
-import { FlagIcon } from "@components/icons/FlagIcon/FlagIcon";
-import { Card } from "@components/views/Card/Card";
-import { AvailableLang, availableLangs } from "@contexts/i18n";
-import { ImgDropdown } from "@medias/images/UGT_Asset_UI_Dropdown";
-import { ImgDropdownUp } from "@medias/images/UGT_Asset_UI_Dropdown_up";
-import * as LS from "@utils/helpers/localStorage";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import styles from "./LanguageSelector.module.css";
+import { Button } from '@components/controls/Button/Button';
+import { FlagIcon } from '@components/icons/FlagIcon/FlagIcon';
+import { Card } from '@components/views/Card/Card';
+import { AvailableLang, availableLangs } from '@contexts/i18n';
+import { ImgDropdown } from '@medias/images/UGT_Asset_UI_Dropdown';
+import { ImgDropdownUp } from '@medias/images/UGT_Asset_UI_Dropdown_up';
+import * as LS from '@utils/helpers/localStorage';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import styles from './LanguageSelector.module.css';
 
 export interface LanguageSelectorProps {}
 
 const Flag = ({ lang, className }: { lang: AvailableLang; className?: string }) => {
-  const [label, alt] = lang === "uk" ? ["UA", "ukrainian"] : ["EN", "english"];
+  const [label, alt] = lang === 'uk' ? ['UA', 'ukrainian'] : ['EN', 'english'];
   return (
-    <React.Fragment>
+    <>
       <FlagIcon lang={lang} alt={alt} className={className} />
       <span>{label}</span>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -28,9 +28,9 @@ function useOutsideClick(ref: React.RefObject<HTMLElement>, onClick: () => void)
         onClick();
       }
     };
-    document.addEventListener("click", handleClickOutside, { capture: true });
+    document.addEventListener('click', handleClickOutside, { capture: true });
     return () => {
-      document.removeEventListener("click", handleClickOutside, { capture: true });
+      document.removeEventListener('click', handleClickOutside, { capture: true });
     };
   }, [ref, onClick]);
 }
@@ -56,8 +56,15 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
   }, [expanded]);
 
   return (
-    <div ref={ref} className={styles.selector} onClick={toggleExpand}>
-      <Button className={`${styles.langCard} ${expanded ? styles.activeBorder : ""}`}>
+    <div
+      ref={ref}
+      role="button"
+      className={styles.selector}
+      onClick={toggleExpand}
+      onKeyUp={toggleExpand}
+      tabIndex={0}
+    >
+      <Button className={`${styles.langCard} ${expanded ? styles.activeBorder : ''}`}>
         <Flag className={styles.flagIcon} lang={currentLang} />
         {expanded ? (
           <ImgDropdownUp
@@ -73,21 +80,19 @@ export const LanguageSelector: React.FunctionComponent<LanguageSelectorProps> = 
         <Card className={styles.dropdown}>
           {availableLangs
             // .filter((lang) => lang !== currentLang)
-            .map((lang) => {
-              return (
-                <React.Fragment key={lang}>
-                  <Button
-                    className={styles.dropdownItem}
-                    fullWidth
-                    variant="white"
-                    onClick={() => selectLang(lang)}
-                  >
-                    <Flag className={styles.flagIcon} lang={lang as AvailableLang} />
-                  </Button>
-                  <hr className={styles.divider}></hr>
-                </React.Fragment>
-              );
-            })}
+            .map((lang) => (
+              <React.Fragment key={lang}>
+                <Button
+                  className={styles.dropdownItem}
+                  fullWidth
+                  variant="white"
+                  onClick={() => selectLang(lang)}
+                >
+                  <Flag className={styles.flagIcon} lang={lang as AvailableLang} />
+                </Button>
+                <hr className={styles.divider} />
+              </React.Fragment>
+            ))}
         </Card>
       )}
     </div>

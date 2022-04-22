@@ -23,5 +23,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'react/jsx-props-no-spreading': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
   },
 };

@@ -1,9 +1,9 @@
-import { Spacer } from "@components/layout/Spacer/Spacer";
-import React from "react";
-import styles from "./Button.module.css";
+import { Spacer } from '@components/layout/Spacer/Spacer';
+import React from 'react';
+import styles from './Button.module.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "normal" | "highlight" | "white";
+  variant?: 'normal' | 'highlight' | 'white';
   fullWidth?: boolean;
   centered?: boolean;
   focus?: boolean;
@@ -20,31 +20,41 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   trailingIcon,
   floats,
   className,
-  variant = "normal",
+  variant = 'normal',
   centered = false,
   ...props
 }) => {
   const btnClasses =
     `${styles.button} ` +
-    `${className ?? ""} ` +
+    `${className ?? ''} ` +
     `${floats ? styles.buttonFloat : styles.buttonDefault} ` +
-    `${variant !== "normal" ? styles[variant] : ""}`;
+    `${variant !== 'normal' ? styles[variant] : ''}`;
 
   return centered ? (
-    <button className={btnClasses} style={{ width: fullWidth ? "100%" : "auto" }} {...props}>
+    <button
+      type="button"
+      className={btnClasses}
+      style={{ width: fullWidth ? '100%' : 'auto' }}
+      {...props}
+    >
       <span className={styles.label}>{children}</span>
       <div className={styles.iconsContainer}>
         {Boolean(leadingIcon) && <span className={styles.leadingIcon}>{leadingIcon}</span>}
-        <Spacer flex={1}></Spacer>
+        <Spacer flex={1} />
         {Boolean(trailingIcon) && <span className={styles.trailingIcon}>{trailingIcon}</span>}
       </div>
     </button>
   ) : (
-    <button className={btnClasses} style={{ width: fullWidth ? "100%" : "auto" }} {...props}>
+    <button
+      type="button"
+      className={btnClasses}
+      style={{ width: fullWidth ? '100%' : 'auto' }}
+      {...props}
+    >
       <div className={styles.flexContainer}>
         {Boolean(leadingIcon) && <span className={styles.leadingIcon}>{leadingIcon}</span>}
         <span className={`${styles.label} ${styles.leftAlign}`}>{children}</span>
-        <Spacer flex={1}></Spacer>
+        <Spacer flex={1} />
         {Boolean(trailingIcon) && <span className={styles.trailingIcon}>{trailingIcon}</span>}
       </div>
     </button>

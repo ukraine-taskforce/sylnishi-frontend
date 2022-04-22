@@ -1,7 +1,7 @@
-import { Button } from "@components/controls/Button/Button";
-import { Text } from "@components/typography/Text/Text";
-import React from "react";
-import styles from "./ActionList.module.css";
+import { Button } from '@components/controls/Button/Button';
+import { Text } from '@components/typography/Text/Text';
+import React from 'react';
+import styles from './ActionList.module.css';
 
 export interface Action {
   title: string;
@@ -15,22 +15,20 @@ export interface ActionListProps {
   actions: Action[];
 }
 
-export const ActionList: React.FunctionComponent<ActionListProps> = ({ title, actions }) => {
-  return (
-    <>
-      <Text className={styles.title}>{title}</Text>
-      {actions.map((action) => (
-        <Button
-          key={action.title}
-          fullWidth
-          className={styles.actionButton}
-          leadingIcon={action.leading}
-          trailingIcon={action.trailing}
-          onClick={action.onAction}
-        >
-          {action.title}
-        </Button>
-      ))}
-    </>
-  );
-};
+export const ActionList: React.FunctionComponent<ActionListProps> = ({ title, actions }) => (
+  <>
+    <Text className={styles.title}>{title}</Text>
+    {actions.map((action) => (
+      <Button
+        key={action.title}
+        fullWidth
+        className={styles.actionButton}
+        leadingIcon={action.leading}
+        trailingIcon={action.trailing}
+        onClick={action.onAction}
+      >
+        {action.title}
+      </Button>
+    ))}
+  </>
+);
