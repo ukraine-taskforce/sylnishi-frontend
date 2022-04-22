@@ -2,7 +2,7 @@ import { FlagIcon } from '@components/icons/FlagIcon/FlagIcon';
 import { Spacer } from '@components/layout/Spacer/Spacer';
 import { ServiceList } from '@components/views/ServiceList/ServiceList';
 import { Country } from '@models/country';
-import { SERVICE_TYPE } from '@models/service';
+import { ServiceType } from '@models/service';
 import { AvailableISO, ISO2RFC } from '@utils/constants/locale';
 import { t } from 'i18next';
 import React from 'react';
@@ -13,8 +13,8 @@ export interface CountryDetailProps {
 }
 
 export const CountryDetail = ({ country }: CountryDetailProps) => {
-  const inhouse = country.services.filter((service) => service.type !== SERVICE_TYPE.EXTERNAL);
-  const external = country.services.filter((service) => service.type === SERVICE_TYPE.EXTERNAL);
+  const inhouse = country.services.filter((service) => service.type !== ServiceType.EXTERNAL);
+  const external = country.services.filter((service) => service.type === ServiceType.EXTERNAL);
 
   return (
     <>

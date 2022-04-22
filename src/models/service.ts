@@ -1,6 +1,6 @@
 export type ID = string;
 
-export enum SERVICE_TYPE {
+export enum ServiceType {
   EXTERNAL = 'External',
   INTERNAL = 'Internal',
 }
@@ -8,6 +8,6 @@ export enum SERVICE_TYPE {
 export interface Service {
   id: ID;
   category: string;
-  type: SERVICE_TYPE;
+  type: ServiceType;
   path: string;
 }

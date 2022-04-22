@@ -9,9 +9,8 @@ export function load(key: string, fallback?: string): string | null {
   const value = localStorage.getItem(key);
   if (fallback != null) {
     return value ?? fallback;
-  } else {
-    return value;
   }
+  return value;
 }
 
 /**
@@ -33,7 +32,7 @@ export function store(key: string, value: string): boolean {
 }
 
 // ─── LANGUAGE ───────────────────────────────────────────────────────────────────
-const LANGUAGE_KEY = "languageSetting";
+const LANGUAGE_KEY = 'languageSetting';
 /** Load Language */
 export const loadLanguage = () => load(LANGUAGE_KEY);
 /** Store Language */

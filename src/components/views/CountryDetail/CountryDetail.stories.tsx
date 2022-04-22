@@ -1,4 +1,4 @@
-import { SERVICE_TYPE } from '@models/service';
+import { ServiceType } from '@models/service';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 import { CountryDetail } from './CountryDetail';
@@ -23,19 +23,19 @@ Primary.args = {
       {
         id: 'internal',
         category: 'An internal link',
-        type: SERVICE_TYPE.INTERNAL,
+        type: ServiceType.INTERNAL,
         path: 'https://requests.ugtf.app',
       },
       {
         id: 'psyche',
         category: 'Internal chat link',
-        type: SERVICE_TYPE.INTERNAL,
+        type: ServiceType.INTERNAL,
         path: '/foo',
       },
       {
         id: 'uk_external_1',
         category: 'Top trusted service 1',
-        type: SERVICE_TYPE.EXTERNAL,
+        type: ServiceType.EXTERNAL,
         path: '/',
       },
     ],

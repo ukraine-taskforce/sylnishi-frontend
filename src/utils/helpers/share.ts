@@ -1,5 +1,9 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+export function isShareSupported(): boolean {
+  return Boolean(navigator.share);
+}
 
 export function useShare() {
   const { t } = useTranslation();
@@ -7,16 +11,12 @@ export function useShare() {
   const share = React.useCallback(() => {
     if (isShareSupported()) {
       navigator.share({
-        title: t("share_title"),
-        text: t("share_text"),
+        title: t('share_title'),
+        text: t('share_text'),
         url: window.location.origin,
       });
     }
   }, [t]);
 
   return { share };
-}
-
-export function isShareSupported(): boolean {
-  return Boolean(navigator.share);
 }

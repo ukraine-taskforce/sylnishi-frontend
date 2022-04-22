@@ -1,4 +1,4 @@
-import { SERVICE_TYPE } from "@models/service";
+import { ServiceType } from "@models/service";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
 import { ServiceList } from "./ServiceList";
@@ -21,13 +21,13 @@ Primary.args = {
     {
       id: "request",
       category: "Request supplies",
-      type: SERVICE_TYPE.INTERNAL,
+      type: ServiceType.INTERNAL,
       path: "https://requests.ugtf.app",
     },
     {
       id: "psyche",
       category: "Psychological support",
-      type: SERVICE_TYPE.EXTERNAL,
+      type: ServiceType.EXTERNAL,
       path: "/",
     },
   ],
