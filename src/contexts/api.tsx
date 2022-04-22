@@ -1,6 +1,6 @@
 import { Country } from '@models/country';
 import API_MOCK from '@utils/constants/apiMockData';
-import { parseServicesListCSV } from '@utils/helpers/parseServicesListCSV';
+import parseServicesListCSV from '@utils/helpers/parseServicesListCSV';
 import { useTranslation } from 'react-i18next';
 import { QueryClient, useQuery } from 'react-query';
 
