@@ -3,12 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'airbnb-typescript',
-    'prettier',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'airbnb-typescript', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -35,6 +30,7 @@ module.exports = {
       files: ['**/*.stories.*'],
       rules: {
         'import/no-anonymous-default-export': 'off',
+        'import/no-extraneous-dependencies': 'off',
       },
     },
   ],
