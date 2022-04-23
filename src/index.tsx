@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { App } from "./App";
 
 import "./index.css";
-import "./others/contexts/i18n";
+import "./contexts/i18n";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
