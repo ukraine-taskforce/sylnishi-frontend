@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      - run: cp public/robots_prod.txt public/robots.txt
       - run: yarn
       - run: yarn run build
       - name: Set AWS credentials
