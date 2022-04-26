@@ -129,6 +129,21 @@ export function Home() {
               {t("share")}
             </Button>
           )}
+
+          <Button
+            fullWidth
+            centered
+            variant="white"
+            onClick={(e) => {
+              const w = window.open('','_blank');
+              if(!w) return;
+              w.location.href = "mailto:ugt@ukraineglobaltaskforce.com";
+              w.focus();
+              e.preventDefault();
+            }}
+          >
+            <span className={styles.noWrap}>{t('contact_us')}</span>
+          </Button>
         </Modal>
       </Content>
     </React.Fragment>
