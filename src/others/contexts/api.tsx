@@ -18,7 +18,7 @@ export function useCountriesQuery() {
 
   return useQuery<Country[]>(`locationQuery${i18n.language}`, async () => {
     try {
-      const response = await fetch(`./assets/dataset_22042022.csv`);
+      const response = await fetch(`./assets/dataset_26042022.csv`);
 
       if (!response.ok) {
         throw new Error(response.statusText);
