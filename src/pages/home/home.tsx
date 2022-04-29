@@ -130,20 +130,17 @@ export function Home() {
             </Button>
           )}
 
-          <Button
-            fullWidth
-            centered
-            variant="white"
-            onClick={(e) => {
-              const w = window.open('','_blank');
-              if(!w) return;
-              w.location.href = "mailto:ugt@ukraineglobaltaskforce.com";
-              w.focus();
-              e.preventDefault();
-            }}
+          <div className={styles.contactLabel}
+               onClick={(e) => {
+                 const w = window.open('','_blank');
+                 if(!w) return;
+                 w.location.href = "mailto:ugt@ukraineglobaltaskforce.com";
+                 w.focus();
+                 e.preventDefault();
+               }}
           >
-            <span className={styles.noWrap}>{t('contact_us')}</span>
-          </Button>
+            {t("contact_us_at")} <span>ugt@ukraineglobaltaskforce.com</span>
+          </div>
         </Modal>
       </Content>
     </React.Fragment>
