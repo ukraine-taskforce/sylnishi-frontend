@@ -14,6 +14,7 @@ import { ImgFlagSk } from "../../medias/images/UGT_Asset_FlagSelector_SK";
 import { ImgFlagSv } from "../../medias/images/UGT_Asset_FlagSelector_SV";
 import { ImgFlagTr } from "../../medias/images/UGT_Asset_FlagSelector_TR";
 import { ImgFlagUk } from "../../medias/images/UGT_Asset_FlagSelector_UK";
+import { ImgFlagEU } from "../../medias/images/UGT_Asset_FlagSelector_EU";
 
 export type AvailableRFC =
   | "cs"
@@ -21,6 +22,7 @@ export type AvailableRFC =
   | "de"
   | "en"
   | "et"
+  | "eu"
   | "hu"
   | "it"
   | "ja"
@@ -55,6 +57,7 @@ export const ISO2RFC = {
   de: "de",
   gb: "en",
   ee: "et",
+  eu: "eu",
   hu: "hu",
   it: "it",
   jp: "ja",
@@ -73,6 +76,7 @@ export const FLAG_MAP = {
   de: ImgFlagDe,
   en: ImgFlagEn,
   et: ImgFlagEt,
+  eu: ImgFlagEU,
   hu: ImgFlagHu,
   it: ImgFlagIt,
   ja: ImgFlagJa,
