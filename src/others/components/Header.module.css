@@ -89,3 +89,22 @@
 .wrapper > *:not(:last-child) {
   margin-inline-end: 10px;
 }
+
+.infoIcon {
+  display: flex;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.ugtLogo {
+  width: 70px;
+  height: 70px;
+}
+
+.contactLabel {
+  text-align: center;
+  color: var(--color-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 20px;
+}
