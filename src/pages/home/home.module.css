@@ -1,8 +1,3 @@
-.ugtLogo {
-  width: 70px;
-  height: 70px;
-}
-
 .welcome {
   color: var(--color-secondary);
 }
@@ -33,12 +28,4 @@
 .noWrap {
   color: var(--color-action);
   white-space: nowrap;
-}
-
-.contactLabel {
-  text-align: center;
-  color: var(--color-secondary);
-  font-weight: 600;
-  cursor: pointer;
-  padding: 20px;
 }

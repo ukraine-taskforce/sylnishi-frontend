@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 
 import { Button } from "../../others/components/Button";
 import { Header } from "../../others/components/Header";
-import { Modal } from "../../others/components/Modal";
 import { Spacer } from "../../others/components/Spacer";
 import { Text } from "../../others/components/Text";
 import { Content } from "../../others/components/Content";
@@ -13,7 +12,6 @@ import { isShareSupported, useShare } from "../../others/helpers/share";
 
 import styles from "./home.module.css";
 
-import { ImgBrand } from "../../medias/images/UGT_Asset_Brand";
 import { ImgNext } from "../../medias/images/UGT_Asset_UI_ButtonNext";
 import { ImgShare } from "../../medias/images/UGT_Asset_UI_Share";
 import { Action, ActionList } from "../../others/components/ActionList";
@@ -21,12 +19,14 @@ import { ImgInfo } from "../../medias/images/UGT_Asset_UI_Info";
 import { Loader } from "../../others/components/Loader";
 import { AvailableISO, FlagIcon, ISO2RFC } from "../../others/components/FlagIcon";
 import ReactGA from "react-ga4";
+import {useSylnishiContext} from "../../others/contexts/sylnishiContext";
 
 export function Home() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { share } = useShare();
-  const [displayModal, setDisplayModal] = React.useState(false);
+  const { updateValue } = useSylnishiContext();
+  const setDisplayAboutUsModal = (displayAboutUsModal: boolean) => updateValue({ displayAboutUsModal });
 
   const { data: countries } = useCountriesQuery();
 
@@ -83,7 +83,7 @@ export function Home() {
             leadingIcon={<ImgInfo alt="" />}
             variant="white"
             onClick={() => {
-              setDisplayModal(true);
+              setDisplayAboutUsModal(true);
             }}
           >
             <span className={styles.noWrap}>{t("about")}</span>
@@ -100,48 +100,6 @@ export function Home() {
             </Button>
           )}
         </div>
-
-        {/* About modal */}
-        <Modal show={displayModal} handleClose={() => setDisplayModal(false)}>
-          <Spacer size={50} />
-          <div style={{ display: "flex" }}>
-            <Spacer flex={1} />
-            <ImgBrand className={styles.ugtLogo} alt="UGT Logo" />
-            <Spacer flex={1} />
-          </div>
-          <Spacer size={20} />
-          <h1 style={{ textAlign: "center" }}>{t("about_dialog_head")}</h1>
-          <Spacer size={22} />
-          <Text alignment="center">{t("about_dialog_detailed")}</Text>
-          <Spacer size={22} />
-          {isShareSupported() && (
-            <Button
-              fullWidth
-              centered
-              variant="highlight"
-              onClick={() => {
-                share();
-              }}
-              trailingIcon={
-                <ImgShare style={{ height: "15px" }} fill="var(--color-white)" alt={t("share")} />
-              }
-            >
-              {t("share")}
-            </Button>
-          )}
-
-          <div className={styles.contactLabel}
-               onClick={(e) => {
-                 const w = window.open('','_blank');
-                 if(!w) return;
-                 w.location.href = "mailto:ugt@ukraineglobaltaskforce.com";
-                 w.focus();
-                 e.preventDefault();
-               }}
-          >
-            {t("contact_us_at")} <span>ugt@ukraineglobaltaskforce.com</span>
-          </div>
-        </Modal>
       </Content>
     </React.Fragment>
   );
